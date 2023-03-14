@@ -24,6 +24,7 @@ public class JavafoodController {
 			
 			@RequestParam(value = "me",required=false) String url
 			) {
+		
 		System.out.println("접속");
 		if(url != null) {
 			if(url.equals("login/mypage")) {
@@ -32,6 +33,7 @@ public class JavafoodController {
 			
 		}else {
 			url="menu";
+			
 		}
 		
 		return url;
