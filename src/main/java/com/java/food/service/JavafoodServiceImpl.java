@@ -13,20 +13,40 @@ import com.java.food.dao.JavafoodDAO;
 public class JavafoodServiceImpl implements JavafoodService {
 
 	@Autowired
-	JavafoodDAO javadao;
+	JavafoodDAO javaDAO;
 ////////////////////////////////////////////////////////////
 //다영
-
+	@Override
+	public List getArtist(String artist){
+		List Artist_list = javaDAO.viewArtist(artist);
+		
+		return Artist_list;
+	}
+	@Override
+	public List getComment(String artist) {
+		List Comment_list = javaDAO.viewComment(artist);
+		
+		return Comment_list;
+		
+	}
 ////////////////////////////////////////////////////////////
 //귀범
 	@Override
 	public List getChart() {
 		List list = null;
+<<<<<<< HEAD
 
 		list = javadao.selectChart();
 
 		return javadao.selectChart();
 
+=======
+		
+		list = javaDAO.selectChart();
+		
+		return javaDAO.selectChart();
+		
+>>>>>>> f1d1f2c0d3cf86f860527f4d45aae59c286dd831
 	}
 ////////////////////////////////////////////////////////////
 //범주

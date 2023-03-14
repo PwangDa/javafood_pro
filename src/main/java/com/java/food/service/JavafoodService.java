@@ -9,7 +9,8 @@ import org.springframework.stereotype.Service;
 public interface JavafoodService {
 ////////////////////////////////////////////////////////////
 //다영
-
+	List getArtist(String artist);
+	List getComment(String artist);
 ////////////////////////////////////////////////////////////
 //귀범
 	List getChart();
