@@ -27,7 +27,7 @@ public class JavafoodController {
 		//경용
 	}
 ////////////////////////////////////////////////////////////
-	@RequestMapping
+	@RequestMapping (value = "genre", method = RequestMethod.GET)
 	public void java5() {
 		//용준
 	}
