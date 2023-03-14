@@ -13,7 +13,7 @@ public interface JavafoodService {
 	List getComment(String artist);
 ////////////////////////////////////////////////////////////
 //귀범
-	List getChart();
+	List getChart(String fam, int pageNum, int countPerPage);
 ////////////////////////////////////////////////////////////
 //범주
 
@@ -24,4 +24,5 @@ public interface JavafoodService {
 //용준
 	Map getGenre(String song, int pageNum, int countPerPage);
 ////////////////////////////////////////////////////////////
+	
 }

@@ -1,5 +1,7 @@
 package com.java.food.dao;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -9,6 +11,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.java.food.dto.FamousChartDTO;
 import com.java.food.dto.GenreDTO;
 
 @Repository
@@ -55,11 +58,18 @@ public List viewComment(String artist) {
 
 ////////////////////////////////////////////////////////////
 //귀범
-public List selectChart() {
+public List<FamousChartDTO> selectChart(String fc, int start, int end) {
 	List list = sqlSession.selectList("mapper.javafood");
 	
 	logger.info("list.size : "+ list.size());
 	return list;
+}
+
+public int totalpaging() {
+    List<FamousChartDTO> list = new ArrayList<FamousChartDTO>();
+    int totalcount = 0;
+    
+    return totalcount;
 }
 ////////////////////////////////////////////////////////////
 //범주

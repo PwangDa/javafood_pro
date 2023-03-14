@@ -42,9 +42,16 @@ public class JavafoodController {
 		return "hdy/artist";
 	}
 ////////////////////////////////////////////////////////////
+	//귀범
 	@RequestMapping(value = "/chart", method = RequestMethod.GET)
-	public void java2() {
-		//귀범
+	public String java2(Model model, @RequestParam("songnumber") Integer songnumber) {
+		List chart = javaService.getChart();
+		
+		model.addAttribute("chart", chart);
+		
+		return "chart/chart";
+		
+		
 	}
 ////////////////////////////////////////////////////////////
 	//범주

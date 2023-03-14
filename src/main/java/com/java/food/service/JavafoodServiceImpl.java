@@ -32,14 +32,23 @@ public class JavafoodServiceImpl implements JavafoodService {
 ////////////////////////////////////////////////////////////
 //귀범
 	@Override
-	public List getChart() {
+	public List getChart(String fam, int pageNum, int countPerPage) {
+		
+		
+		int start = 0;
+		int end = 0;
+		start = (countPerPage * (pageNum - 1)) + 1;
+		end = start + countPerPage - 1;
+		
+		
 		List list = null;
-
+		
+		Map map = new HashMap();
 
 		
-		list = javaDAO.selectChart();
+		list = javaDAO.selectChart(fam, start, end);
 		
-		return javaDAO.selectChart();
+		return javaDAO.selectChart(fam, start, end);
 		
 	}
 ////////////////////////////////////////////////////////////
