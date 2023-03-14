@@ -5,6 +5,7 @@ import java.util.Map;
 
 import org.springframework.stereotype.Service;
 
+import com.java.food.dto.FamousChartDTO;
 import com.java.food.dto.PlayListDTO;
 import com.java.food.dto.login_DTO;
 
@@ -18,7 +19,7 @@ public interface JavafoodService {
 ////////////////////////////////////////////////////////////
 //귀범
 	List getChart();
-	Map getChart2(String fc, int pageNum, int countPerPage);
+	int Chart(FamousChartDTO dto);
 ////////////////////////////////////////////////////////////
 //범주
 	List<PlayListDTO> selectPlayList(String id);

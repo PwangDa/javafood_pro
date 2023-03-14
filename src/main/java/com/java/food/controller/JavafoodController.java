@@ -1,9 +1,7 @@
 package com.java.food.controller;
 
 import java.util.List;
-import java.util.Map;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.java.food.dto.FamousChartDTO;
 import com.java.food.dto.PlayListDTO;
 import com.java.food.dto.login_DTO;
 import com.java.food.service.JavafoodService;
@@ -59,10 +58,47 @@ public class JavafoodController {
 ////////////////////////////////////////////////////////////
 	//귀범
 	@RequestMapping(value = "/chart", method = RequestMethod.GET)
-	public String java2(Model model, @RequestParam("songnumber") Integer songnumber) {
-		List chart = javaService.getChart();
+	public String java2(Model ch, 
+			@RequestParam(value= "songnumber", required = false) String songnumber,
+			@RequestParam(value= "artistname", required = false) String artistname,
+			@RequestParam(value= "songname", required = false) String songname,
+			@RequestParam(value= "bygenre", required = false) String bygenre,
+			@RequestParam(value= "hits", required = false) String hits,
+			@RequestParam(value= "likes", required = false) String likes,
+			@RequestParam(value= "link", required = false) String link,
+			@RequestParam(value= "famous", required = false) String famous,
+			@RequestParam(value= "record", required = false) String record,
+			@RequestParam(value= "playtime", required = false) String playtime,
+			@RequestParam(value= "ranking", required = false) String ranking,
+			@RequestParam(value= "album", required = false) String album,
+			@RequestParam(value= "imglink", required = false) String imglink,
+			@RequestParam(value= "country", required = false) String country,
+			@RequestParam(value= "album_name", required = false) String album_name,
+			@RequestParam(value= "album_add", required = false) String album_add,
+			@RequestParam(value= "artist_add", required = false) String artist_add
+			) {
+			if(songnumber != null) {
+				FamousChartDTO dto = new FamousChartDTO();
+				dto.setSongnumber(songnumber);
+				dto.setArtistname(artistname);
+				dto.setSongname(songname);
+				dto.setBygenre(bygenre);
+				dto.setHits(hits);
+				dto.setLikes(likes);
+				dto.setLink(link);
+				dto.setFamous(famous);
+				dto.setRecord(record);
+				dto.setPlaytime(playtime);
+				dto.setRanking(ranking);
+				dto.setAlbum(album);
+				dto.setImglink(imglink);
+				dto.setCountry(country);
+				dto.setAlbum_name(album_name);
+				dto.setAlbum_add(album_add);
+				dto.setArtist_add(artist_add);	
+			}
+			ch.addAttribute(javaService.getChart());
 		
-		model.addAttribute("chart", chart);
 		
 		return "chart/chart";
 

@@ -72,20 +72,9 @@ public class JavafoodServiceImpl implements JavafoodService {
 		
 	}
 	
-	// 페이징
-	public Map getChart2(String fc, int pageNum, int countPerPage) {
-		
-		int start = 0;
-		int end = 0;
-		start = (countPerPage * (pageNum - 1)) + 1;
-		end = start + countPerPage - 1;
-		List list = javaDAO.getGenre(fc, start, end);
-		int totalCount = javaDAO.pagetotal();
-
-		Map map = new HashMap();
-		map.put("list", list);
-		map.put("totalCount", totalCount);
-		return map;
+	
+	public int Chart(FamousChartDTO dto) {
+		return javaDAO.chart
 		
 	}
 ////////////////////////////////////////////////////////////
