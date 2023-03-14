@@ -44,7 +44,15 @@ public class JavafoodServiceImpl implements JavafoodService {
 	}
 ////////////////////////////////////////////////////////////
 //범주
-
+	@Override
+	public List selectPlayList(String id)
+	{
+		List result = null;
+		
+//		result = javaDAO.selectPlayList(id);
+		
+		return result;
+	}
 ////////////////////////////////////////////////////////////
 //경용
 	@Override

@@ -12,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.java.food.dto.GenreDTO;
+import com.java.food.dto.playListDTO;
 
 @Repository
 public class JavafoodDAOImpl implements JavafoodDAO {
@@ -65,7 +66,14 @@ public List selectChart() {
 }
 ////////////////////////////////////////////////////////////
 //범주
-
+@Override
+public List<playListDTO> selectPlayList(String id)
+{
+	List<playListDTO> result = null;
+	
+	
+	return result;
+}
 ////////////////////////////////////////////////////////////
 //경용
 	public String test() {
