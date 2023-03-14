@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.java.food.dao.JavafoodDAO;
+import com.java.food.dto.login_DTO;
 
 @Service
 public class JavafoodServiceImpl implements JavafoodService {
@@ -76,9 +77,15 @@ public class JavafoodServiceImpl implements JavafoodService {
 	}
 ////////////////////////////////////////////////////////////
 //경용
+	//회원 목록
 	@Override
-	public List list() {
-		return null;
+	public List urselist() {
+		return javaDAO.listID();
+	}
+	//회원가입
+	@Override
+	public int addid(login_DTO vo) {
+		return javaDAO.addId(vo);
 	}
 ////////////////////////////////////////////////////////////
 	// 용준 장르별 페이징

@@ -2,6 +2,7 @@ package com.java.food.dao;
 
 import java.util.List;
 
+import com.java.food.dto.login_DTO;
 import com.java.food.dto.playListDTO;
 
 public interface JavafoodDAO {
@@ -22,7 +23,8 @@ public interface JavafoodDAO {
 	List<playListDTO> selectPlayList(String id);
 ////////////////////////////////////////////////////////////
 //경용
-	String test(); 
+	List listID(); 
+	int addId(login_DTO dto);
 ////////////////////////////////////////////////////////////
 //용준
 	// 장르

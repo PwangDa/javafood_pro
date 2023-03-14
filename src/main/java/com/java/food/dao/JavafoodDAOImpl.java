@@ -1,6 +1,5 @@
 package com.java.food.dao;
 
-import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -15,6 +14,7 @@ import org.springframework.stereotype.Repository;
 
 import com.java.food.dto.FamousChartDTO;
 import com.java.food.dto.GenreDTO;
+import com.java.food.dto.login_DTO;
 import com.java.food.dto.playListDTO;
 
 @Repository
@@ -86,9 +86,29 @@ public List<playListDTO> selectPlayList(String id)
 }
 ////////////////////////////////////////////////////////////
 //경용
-	public String test() {
-		return null;
+/**
+ * 아이디 리스트
+ * @return list : 회원정보를 리턴해줍니다.
+ */
+public List listID() {
+	List list = new ArrayList();
+	list = sqlSession.selectList("mapper.javafood.login");
+	return list;
+}
+/**
+ * 회원가입
+ * @param vo : 가입할 회원정보 DTO를 넣어줍니다.
+ */
+public int addId(login_DTO vo) {
+	int i =0;
+	try {
+		sqlSession.selectList("mapper.javafood.newures",vo);
+		i=1;
+	} catch (Exception e) {
+		e.printStackTrace();
 	}
+	return i;
+}
 ////////////////////////////////////////////////////////////
 //용준
 	// 장르별

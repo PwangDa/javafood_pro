@@ -5,6 +5,7 @@ import java.util.Map;
 
 import org.springframework.stereotype.Service;
 
+import com.java.food.dto.login_DTO;
 import com.java.food.dto.playListDTO;
 
 @Service
@@ -21,7 +22,9 @@ public interface JavafoodService {
 	List<playListDTO> selectPlayList(String id);
 ////////////////////////////////////////////////////////////
 //경용
-	List list();
+	List urselist();
+	int addid(login_DTO vo);
+
 ////////////////////////////////////////////////////////////
 //용준
 	// 장르

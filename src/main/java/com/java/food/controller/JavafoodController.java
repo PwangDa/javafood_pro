@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.java.food.dto.login_DTO;
 import com.java.food.service.JavafoodService;
 
 @Controller
@@ -73,9 +75,36 @@ public class JavafoodController {
 	}
 ////////////////////////////////////////////////////////////
 	//경용
-	@RequestMapping (value = "/login/mypage", method = RequestMethod.GET)
-	public String java4() {
-		System.out.println("ddd");
+	@RequestMapping (value = "/login", method = RequestMethod.GET)
+	public String loginpage(Model mo,
+			@RequestParam(value = "Id1",required = false) String Id1,
+			@RequestParam(value = "PW1",required = false) String PW1,
+			@RequestParam(value = "name",required = false) String name,
+			@RequestParam(value = "nic",required = false) String nic,
+			@RequestParam(value = "mail",required = false) String mail,
+			@RequestParam(value = "pn1",required = false) String pn1,
+			@RequestParam(value = "pn2",required = false) String pn2,
+			@RequestParam(value = "phone1",required = false) String phone1,
+			@RequestParam(value = "phone2",required = false) String phone2,
+			@RequestParam(value = "phone3",required = false) String phone3
+			 ){
+		if(Id1!=null) {
+			login_DTO dto = new login_DTO();
+			dto.setId(Id1);
+			dto.setPw(PW1);
+			dto.setNic(nic);
+			dto.setName(name);
+			dto.setId(mail);
+			dto.setPn(pn1+"-"+pn2);
+			dto.setPhone(phone1+"-"+phone2+"-"+phone3);
+			mo.addAttribute(javaService.addid(dto));
+		}
+		mo.addAttribute(javaService.urselist());
+		return "lky/login";
+	}
+	@RequestMapping (value = "/login", method = RequestMethod.GET)
+	public String login(Model mo) {
+		mo.addAttribute(javaService.urselist());
 		return "lky/login";
 	}
 ////////////////////////////////////////////////////////////
