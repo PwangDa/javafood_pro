@@ -1,5 +1,6 @@
 package com.java.food.controller;
 
+<<<<<<< HEAD
 
 import java.util.List;
 
@@ -8,6 +9,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import javax.servlet.http.HttpServletRequest;
 
 
+=======
+import org.springframework.beans.factory.annotation.Autowired;
+import javax.servlet.http.HttpServletRequest;
+
+>>>>>>> aa6a1447ffb0c26e90ad8c8a24c079295fd9ef57
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -44,13 +50,25 @@ public class JavafoodController {
 		//귀범
 	}
 ////////////////////////////////////////////////////////////
+	//범주
 	@RequestMapping("playList")
-	public void selectPlayList(HttpServletRequest request)
+	public String selectPlayList(HttpServletRequest request)
 	{
-		//범주
-		System.out.println("JavafoodController의 selectPlayList 메서드 실행됨.");//확인용
-		System.out.println("해당 플레이 리스트를 요청한 아이디 : " + request.getSession().getAttribute("login") );
+		String result = "playList/playList"; 
 		
+		System.out.println("JavafoodController의 selectPlayList 메서드 실행됨."); //확인용
+		
+		//세션에 저장된 id값 받아오기
+		String id = (String)request.getSession().getAttribute("login");
+		System.out.println("해당 플레이 리스트를 요청한 아이디 : " + id ); //확인용
+		
+		//Service에서 플레이 리스트를 불러오는 메서드 실행하기
+		//메서드 실행 결과(리스트)를 리스트에 담기
+		
+		List playList = 
+				
+	
+		return result;
 	}
 ////////////////////////////////////////////////////////////
 	//경용
@@ -60,9 +78,11 @@ public class JavafoodController {
 		return "lky/login";
 	}
 ////////////////////////////////////////////////////////////
+	//용준
 	@RequestMapping (value = "/genre", method = RequestMethod.GET)
-	public void java5() {
-		//용준
+	public String java5() {
+		
+		return "lyj/Genre";
 	}
 ////////////////////////////////////////////////////////////
 }
