@@ -22,7 +22,7 @@ public class JavafoodController {
 		//범주
 	}
 ////////////////////////////////////////////////////////////
-	@RequestMapping(value = "login/mypage", method = RequestMethod.GET)
+	@RequestMapping (value = "login/mypage", method = RequestMethod.GET)
 	public void java4() {
 		//경용
 	}
