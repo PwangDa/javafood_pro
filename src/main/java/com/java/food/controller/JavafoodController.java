@@ -12,7 +12,7 @@ public class JavafoodController {
 		//다영
 	}
 ////////////////////////////////////////////////////////////
-	@RequestMapping(value = "chart", method = RequestMethod.GET)
+	@RequestMapping(value = "/chart", method = RequestMethod.GET)
 	public void java2() {
 		//귀범
 	}
