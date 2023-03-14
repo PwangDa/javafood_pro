@@ -57,4 +57,16 @@
 		WHERE
 			id2 = #{id}
 	</select>
+	
+	<!-- 플레이 리스트 내역(Content) 불러오기 -->
+	<select id="selectPlayListContent" resultType="playListDTO" parameterType="String">
+		SELECT
+			plc.pl_id, plc.listNumber, plc.songName, plc.songNumber, s.Link
+		FROM
+			playList_Content plc, song1 s
+		WHERE
+			plc.songNumber = s.songNumber
+			AND
+			plc.pl_id = #{pl_id}
+	</select>
 </mapper>

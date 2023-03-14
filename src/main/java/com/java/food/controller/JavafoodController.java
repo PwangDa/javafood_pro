@@ -67,10 +67,32 @@ public class JavafoodController {
 		//Service에서 플레이 리스트를 불러오는 메서드 실행하기
 		//메서드 실행 결과(리스트)를 필드에 담기
 		List<PlayListDTO> playList = javaService.selectPlayList(id);
-		System.out.println("JavafoodController의 최종 리스트 크기는 : " + playList.size() );
+		System.out.println("javaService.selectPlayList가 가져온 최종 리스트 크기는 : " + playList.size() );
 				
 		//리스트를 담은 필드를 모델을 통해서 보내기
 		model.addAttribute("playList", playList);
+		
+		return result;
+	}
+	
+	@RequestMapping("plsyListContent")
+	public String selectPlayListContent(HttpServletRequest request, Model model)
+	{
+		System.out.println("JavafoodController의 selectPlayListContent 메서드 실행됨."); //확인용
+		
+		String result = "playList/playListContent"; // /view/playList/playListContent.jsp로 이동.
+		
+		//주소에서 받은 값 가져오기
+		String pl_id = request.getParameter("pl_id");
+		System.out.println("selectPlayListContent 메서드를 실행하며 받은 pl_id의 값은 : " + pl_id); //확인용
+		
+		//Service에서 플레이 리스트 내역을 불러오는 메서드 실행하기
+		//메서드 실행 결과(리스트)를 필드에 담기
+//		List<PlayListDTO> playListContent = javaService.selectPlayListContent(pl_id);
+//		System.out.println("javaService.selectPlayListContent가 가져온 최종 리스트 크기는 : " + playListContent); //확인용
+		
+		//리스트를 담은 필드를 모델을 통해서 보내기
+//		model.addAttribute("playListContent", playListContent);
 		
 		return result;
 	}

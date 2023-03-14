@@ -76,6 +76,11 @@ public class JavafoodServiceImpl implements JavafoodService {
 	}
 ////////////////////////////////////////////////////////////
 //범주
+	/**
+	 * 작성자 : 김범주
+	 * 플레이 리스트를 불러옵니다.
+	 * 리턴 타입 : PlayListDTO를 담은 List.
+	 */
 	@Override
 	public List<PlayListDTO> selectPlayList(String id)
 	{
@@ -85,6 +90,25 @@ public class JavafoodServiceImpl implements JavafoodService {
 		//JavafoodDAO의 selectPlayList 메서드를 실행하기
 		//메서드의 결과(List)를 필드에 담기
 		result = javaDAO.selectPlayList(id);
+		System.out.println("javaDAO의 selectPlayList를 실행하여 얻은 리스트의 크기 : " + result.size() ); //확인용
+		
+		return result;
+	}
+	
+	/**
+	 * 작성자 : 김범주
+	 * 플레이 리스트 내역(Content)를 불러옵니다.
+	 * 리턴 타입 : PlayListDTO를 담은 List.
+	 */
+	@Override
+	public List<PlayListDTO> selectPlayListContent(String pl_id)
+	{
+		System.out.println("JavafoodServicelImpl의 selectPlayListContent 메서드 실행됨."); //확인용
+		List<PlayListDTO> result = null;
+		
+		//JavafoodDAO의 selectPlayList 메서드를 실행하기
+		//메서드의 결과(List)를 필드에 담기
+//		result = javaDAO.selectPlayListContent(pl_id);
 		System.out.println("javaDAO의 selectPlayList를 실행하여 얻은 리스트의 크기 : " + result.size() ); //확인용
 		
 		return result;
