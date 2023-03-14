@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.java.food.dao.JavafoodDAO;
+import com.java.food.dto.FamousChartDTO;
 
 @Service
 public class JavafoodServiceImpl implements JavafoodService {
@@ -31,24 +32,33 @@ public class JavafoodServiceImpl implements JavafoodService {
 	}
 ////////////////////////////////////////////////////////////
 //귀범
+	// 차트
 	@Override
-	public List getChart(String fam, int pageNum, int countPerPage) {
+	public List getChart(){
 		
+		String songnumber = null;
+		
+		List<FamousChartDTO> chartlist = javaDAO.selectChart(songnumber);
+		
+		return chartlist;
+		
+		
+	}
+	
+	// 페이징
+	public Map getChart2(String fc, int pageNum, int countPerPage) {
 		
 		int start = 0;
 		int end = 0;
 		start = (countPerPage * (pageNum - 1)) + 1;
 		end = start + countPerPage - 1;
-		
-		
-		List list = null;
-		
-		Map map = new HashMap();
+		List list = javaDAO.getGenre(fc, start, end);
+		int totalCount = javaDAO.pagetotal();
 
-		
-		list = javaDAO.selectChart(fam, start, end);
-		
-		return javaDAO.selectChart(fam, start, end);
+		Map map = new HashMap();
+		map.put("list", list);
+		map.put("totalCount", totalCount);
+		return map;
 		
 	}
 ////////////////////////////////////////////////////////////

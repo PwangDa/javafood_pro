@@ -1,7 +1,5 @@
 package com.java.food.dao;
 
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -61,18 +59,22 @@ SqlSession sqlSession;
 
 ////////////////////////////////////////////////////////////
 //귀범
-public List<FamousChartDTO> selectChart(String fc, int start, int end) {
-	List list = sqlSession.selectList("mapper.javafood");
-	
+
+@Override
+public List<FamousChartDTO> selectChart(String songnumber) {
+	List list = new ArrayList();
+	list = sqlSession.selectList("mapper.javafood.selectChart", songnumber);
 	logger.info("list.size : "+ list.size());
 	return list;
 }
 
-public int totalpaging() {
-    List<FamousChartDTO> list = new ArrayList<FamousChartDTO>();
-    int totalcount = 0;
-    
-    return totalcount;
+public Map selectPaging(String fc, int start, int end) {
+	
+	Map map = new HashMap();
+	map.put("start", start);
+	map.put("end", end);
+	return null;
+	
 }
 ////////////////////////////////////////////////////////////
 //범주
@@ -105,6 +107,9 @@ public List<playListDTO> selectPlayList(String id)
 	
 		return 0;
 	}
+
+	
+
 
 ////////////////////////////////////////////////////////////
 
