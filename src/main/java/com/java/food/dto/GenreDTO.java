@@ -1,6 +1,6 @@
 package com.java.food.dto;
 
-public class FamousChartDTO {
+public class GenreDTO {
 	
 	private String songnumber;
 	private String artistname;
@@ -123,8 +123,5 @@ public class FamousChartDTO {
 	public void setArtist_add(String artist_add) {
 		this.artist_add = artist_add;
 	}
-	
-	
-	
-	
+
 }
