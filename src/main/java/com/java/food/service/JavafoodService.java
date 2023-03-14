@@ -1,6 +1,7 @@
 package com.java.food.service;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.stereotype.Service;
 
@@ -20,6 +21,6 @@ public interface JavafoodService {
 	List list();
 ////////////////////////////////////////////////////////////
 //용준
-
+	Map getGenre(String song, int pageNum, int countPerPage);
 ////////////////////////////////////////////////////////////
 }

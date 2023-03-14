@@ -8,6 +8,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.java.food.dto.GenreDTO;
+
 @Repository
 public class JavafoodDAOImpl implements JavafoodDAO {
 	
@@ -37,6 +39,10 @@ public List selectChart() {
 	}
 ////////////////////////////////////////////////////////////
 //용준
+	public List<GenreDTO> getGenre(String a, int start, int end) {
+		
+		return null;
+	}
 
 ////////////////////////////////////////////////////////////
 
