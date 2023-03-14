@@ -16,6 +16,7 @@ import com.java.food.service.JavafoodService;
 @Controller
 public class JavafoodController {
 	
+	@Autowired
 	JavafoodService javaService;
 
 	@RequestMapping(value = "/dsaa",method = RequestMethod.GET)
@@ -38,11 +39,10 @@ public class JavafoodController {
 		
 		return url;
 	}
-	@Autowired
 	
 ////////////////////////////////////////////////////////////
 	//다영
-	@RequestMapping(value = "/artist", method = RequestMethod.GET)
+	@RequestMapping(value = "/artistpage", method = RequestMethod.GET)
 	public String java1(Model model,
 			@RequestParam("artist") String artist
 			) {
@@ -64,9 +64,9 @@ public class JavafoodController {
 ////////////////////////////////////////////////////////////
 	//범주
 	@RequestMapping("playList")
-	public String selectPlayList(HttpServletRequest request)
+	public String selectPlayList(HttpServletRequest request, Model model)
 	{
-		String result = "playList/playList"; 
+		String result = "playList/playList"; // /view/playList/playList.jsp로 이동.
 		
 		System.out.println("JavafoodController의 selectPlayList 메서드 실행됨."); //확인용
 		
@@ -79,7 +79,8 @@ public class JavafoodController {
 		
 //		List playList = javaService.selectPlayList(id);
 				
-	
+//		model.addAttribute("playList", playlist);
+		
 		return result;
 	}
 ////////////////////////////////////////////////////////////
