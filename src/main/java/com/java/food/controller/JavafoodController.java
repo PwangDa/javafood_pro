@@ -1,8 +1,13 @@
 package com.java.food.controller;
 
+<<<<<<< HEAD
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+=======
+import javax.servlet.http.HttpServletRequest;
+
+>>>>>>> e903918efcff7b779c60eb9a7ea3ed7af62b5c29
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -40,9 +45,12 @@ public class JavafoodController {
 	}
 ////////////////////////////////////////////////////////////
 	@RequestMapping("playList")
-	public void java3()
+	public void selectPlayList(HttpServletRequest request)
 	{
 		//범주
+		System.out.println("JavafoodController의 selectPlayList 메서드 실행됨.");//확인용
+		System.out.println("해당 플레이 리스트를 요청한 아이디 : " + request.getSession().getAttribute("login") );
+		
 	}
 ////////////////////////////////////////////////////////////
 	//경용
