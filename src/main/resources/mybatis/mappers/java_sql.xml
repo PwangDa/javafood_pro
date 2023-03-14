@@ -15,4 +15,14 @@
 	<select id="chart" resultType="chartDTO">
 		SELECT * FROM Genre;
 	</select>
+
+	<!-- 장르별-->
+	<select id="genre" resultType="genreDTO">
+		SELECT * FROM Genre;
+	</select>
+	
+	<!-- 최신 TOP100-->
+	<select id="song" resultType="genreDTO">
+		SELECT * FROM song1;
+	</select>
 </mapper>

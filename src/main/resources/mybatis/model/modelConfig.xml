@@ -13,6 +13,7 @@
 		<!-- 범주 -->
 		
 		<!-- 용준 -->
+		<typeAlias type="com.java.food.dto.GenreDTO" alias="genreDTO" />
 		
 		<!-- 경용 -->
 	</typeAliases>
