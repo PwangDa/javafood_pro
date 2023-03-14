@@ -38,6 +38,21 @@ public class JavafoodController {
 		
 		return "hdy/artist";
 	}
+	
+	@RequestMapping(value = "/albumpage", method = RequestMethod.GET)
+	public String java1_1(Model model,
+			@RequestParam("album") String album
+			) {
+		System.out.println("앨범페이지 접속");
+		System.out.println("album >>" + album);
+		//아티스트 소개 페이지 출력 메소드(전달요소 > 아티스트명)
+		List album_list = javaService.getAlbum(album);
+		//댓글 출력 메소드(전달요소 > 아티스트명)
+		
+		model.addAttribute("album_list", album_list);
+		
+		return "hdy/Album";
+	}
 ////////////////////////////////////////////////////////////
 	//귀범
 	@RequestMapping(value = "/chart", method = RequestMethod.GET)

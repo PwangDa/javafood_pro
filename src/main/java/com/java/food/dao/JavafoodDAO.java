@@ -14,6 +14,8 @@ public interface JavafoodDAO {
 	
 	List viewComment(String artist);
 	
+	List viewAlbum(String album);
+	
 ////////////////////////////////////////////////////////////
 //귀범
 	// 차트용

@@ -40,6 +40,21 @@ SqlSession sqlSession;
 			
 			return list;
 		}
+		/**
+		 * 다영
+		 * 앨범 페이지 출력 메소드
+		 * @param  : album > String (앨범이름)
+		 * @return : list
+		 */
+		@Override
+		public List viewAlbum(String album) {
+			logger.info("JavafoodDAOImpl > viewAlbum 실행");
+			List list = new ArrayList();
+			list = sqlSession.selectList("mapper.javafood.viewAlbum", album);
+			logger.info("Album list.size >>>"+list.size()); 
+			
+			return list;
+		}
 
 		/**
 		 * 다영

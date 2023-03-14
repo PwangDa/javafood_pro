@@ -43,6 +43,19 @@ public class JavafoodServiceImpl implements JavafoodService {
 		return Comment_list;
 		
 	}
+	/**
+	 * 다영
+	 * 댓글 출력 메소드
+	 * 전달인자 : String (아티스트 이름)
+	 * @return : list
+	 */
+	@Override
+	public List getAlbum(String album) {
+		List Album_list = javaDAO.viewAlbum(album);
+		
+		return Album_list;
+		
+	}
 ////////////////////////////////////////////////////////////
 //귀범
 	// 차트

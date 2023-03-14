@@ -13,6 +13,7 @@ public interface JavafoodService {
 //다영
 	List getArtist(String artist);
 	List getComment(String artist);
+	List getAlbum(String album);
 ////////////////////////////////////////////////////////////
 //귀범
 	List getChart();

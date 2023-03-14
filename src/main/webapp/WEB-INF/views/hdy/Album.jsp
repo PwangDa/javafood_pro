@@ -1,9 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"
-    import = "com.java.food.dao.JavafoodDAO"
-    import = "com.java.food.dto.AlbumDTO"
-    import = "javafood_DTO.AlbumDTO"
-    import = "SecondProject.JavaFood_DAO"
     import = "java.util.List"
     %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -16,7 +12,7 @@
 <title>Album TTTest</title>
 <script link src ="/music/resources/script/albumScript.js"></script>
 <style>       
-        <c:forEach var="album" items="${album_title}" varStatus="loop"> 
+        <c:forEach var="album" items="${album_list}" varStatus="loop"> 
         	.cont2_${loop.count}:hover span{
         		display : none;
         	}
@@ -48,11 +44,11 @@
             </div>
         </div>
 
-        <c:forEach var="album" items="${album_title}" varStatus="loop">
+        <c:forEach var="album" items="${album_list}" varStatus="loop">
         	<div class= "musiclist ">
             	<div class="cont2 cont2_${loop.count}">
                 	<div class="left_item" style="color: rgb(187, 187, 187);">${loop.count}</div>
-                	<div class="left_item left_name"><a href="naver.com"><strong>${album}</strong></a></div>
+                	<div class="left_item left_name"><a href="naver.com"><strong>${album.music_name}</strong></a></div>
                 	<div class="right_item">
                 	<input type="checkbox" class="but btn${loop.count}">
                 	<span class="chek1" style="color: rgb(187, 187, 187);">3:15</span>
