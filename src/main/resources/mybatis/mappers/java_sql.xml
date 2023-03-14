@@ -47,4 +47,14 @@
 	<select id="song" resultType="genreDTO">
 		SELECT * FROM song1;
 	</select>
+	
+	<!-- 플레이 리스트 불러오기 -->
+	<select id="selectPlayList" resultType="playListDTO" parameterType="String">
+		SELECT
+			pl_title, pl_id
+		FROM
+			playList
+		WHERE
+			id2 = #{id}
+	</select>
 </mapper>

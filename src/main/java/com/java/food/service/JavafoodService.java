@@ -5,7 +5,7 @@ import java.util.Map;
 
 import org.springframework.stereotype.Service;
 
-import com.java.food.dto.playListDTO;
+import com.java.food.dto.PlayListDTO;
 
 @Service
 public interface JavafoodService {
@@ -15,10 +15,11 @@ public interface JavafoodService {
 	List getComment(String artist);
 ////////////////////////////////////////////////////////////
 //귀범
-	List getChart(String fam, int pageNum, int countPerPage);
+	List getChart();
+	Map getChart2(String fc, int pageNum, int countPerPage);
 ////////////////////////////////////////////////////////////
 //범주
-	List<playListDTO> selectPlayList(String id);
+	List<PlayListDTO> selectPlayList(String id);
 ////////////////////////////////////////////////////////////
 //경용
 	List list();

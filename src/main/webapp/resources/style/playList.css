@@ -1,0 +1,110 @@
+@charset "UTF-8";
+        body
+        {
+            background-color: black;
+            color:white;
+        }
+
+        div.title
+        {
+            text-align:center;
+            margin:5% 0% 0% 0%;
+            text-shadow:2px 2px 2px gray;
+            color:whitesmoke;
+        }
+        
+
+        img.addList
+        {
+            width: 30px;
+            height: 30px;
+            /* border-right:1px solid rgb(184, 184, 184); */
+            margin-bottom: 1%;
+        }
+
+
+        div.playList
+        {
+            font-size:100%;
+            text-align:center;
+
+            display:inline-block;
+
+            /* border:1px solid black; */
+            width:19%;
+            margin:0% 3% 10% 2%;
+        }
+        div.plText
+        {
+            display:block;
+            margin-top:3%;
+            /* border-top:1px solid rgb(184, 184, 184); */
+        }
+        img.album
+        {
+            height: 100%;
+            width: 100%;
+            box-shadow: 5px 5px 5px 5px gray;
+        }
+
+        a
+        {
+            text-decoration: none; /* 링크의 밑줄 제거 */
+            color: inherit; /* 링크의 색상 제거 */
+        }
+
+        input.addList_textbar
+        {
+            border:hidden;
+            border-radius: 5px;
+
+            margin:0 0 1% 1%;
+
+            background-color: rgb(63, 63, 63);
+            color:rgb(247, 212, 147);
+            
+            width:50%;
+            height: 30px;
+        }
+
+        input.addList_ex_textbar
+        {
+            border:hidden;
+            border-radius: 5px;
+
+            margin:0 0 1% 1%;
+
+            background-color: rgb(63, 63, 63);
+            color:rgb(247, 212, 147);
+            
+            width:50%;
+            height: 150px;
+        }
+
+        input.addList_btn
+        {
+            border:hidden;
+
+            background-color:black;
+            color:white;
+
+            width:6%;
+            height: 32px;
+        }
+
+        .hidden
+        {
+            display:none;
+        }
+
+        span.addList
+        {
+            vertical-align: top;
+        }
+
+        div.noList
+        {
+        	color:white;
+        	padding:25%;
+        	text-align:center;
+        }

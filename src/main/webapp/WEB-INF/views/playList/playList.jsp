@@ -16,7 +16,7 @@
 
 
 <!-- css 파일 불러오기 -->
-<link rel="stylesheet" href="javascript:void(0)">
+<link rel="stylesheet" href="resources/style/playList.css">
 
 
 </head>
@@ -54,12 +54,12 @@
 				<div class="playList">
 					<!-- 앨범 표지가 추가되면 해당 부분의 src를 수정할 것. -->
 					<img class="album" src="https://image.bugsm.co.kr/album/images/original/203228/20322838.jpg?version=undefined">
-					<div class="plText">${ list.listTitle }</div>
+					<div class="plText">${ list.pl_title }</div>
 				</div>
 			</a>
 			</c:forEach>
 		</c:when>
    	</c:choose>
-   	<script src="javascript:void(0)"></script>
+   	<script src="resources/script/playList.js"></script>
 </body>
 </html>
