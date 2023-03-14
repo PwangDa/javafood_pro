@@ -1,7 +1,9 @@
 package com.java.food.controller;
 
 import java.util.List;
+import java.util.Map;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -97,9 +99,34 @@ public class JavafoodController {
 ////////////////////////////////////////////////////////////
 	//용준
 	@RequestMapping (value = "/genre", method = RequestMethod.GET)
-	public String java5() {
-		
-		return "lyj/Genre";
+	public String java5(Model model,
+			HttpServletRequest request) {
+		// 페이징
+				int pageNum = 1;		// 현재 페이지
+				int countPerPage = 10;	// 한 페이지당 표시 수 
+
+				// 장르별 리스트
+				String song="발라드";
+				if(request.getParameter("genre")!=null) {
+					song = request.getParameter("genre");
+				}
+				// 페이징 
+				String tmp_pageNum = request.getParameter("pageNum");
+				if(tmp_pageNum != null) {
+					pageNum = Integer.parseInt(tmp_pageNum);
+				}
+				System.out.println("song  전: " + song);
+				System.out.println("pageNum : " + pageNum);
+				System.out.println("countPerPage : " + countPerPage);
+				Map genre_list = javaService.getGenre(song, pageNum, countPerPage);
+				model.addAttribute("genre", genre_list.get("list"));
+				model.addAttribute("totalCount", genre_list.get("totalCount"));
+				model.addAttribute("pageNum", pageNum);
+				model.addAttribute("countPerPage", countPerPage);
+				model.addAttribute("song", song);
+				System.out.println("song 후: " + song);
+				
+		return "lyj/genre";
 	}
 ////////////////////////////////////////////////////////////
 }

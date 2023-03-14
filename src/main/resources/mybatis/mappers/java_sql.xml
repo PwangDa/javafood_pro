@@ -39,12 +39,24 @@
 	</select>
 
 	<!-- 장르별-->
-	<select id="genre" resultType="genreDTO">
-		SELECT * FROM Genre;
+	<select id="genre" resultType="genreDTO" parameterType="java.util.HashMap">
+		SELECT * FROM (
+			SELECT rownum AS rnum, genre.* FROM (
+				SELECT * FROM genre
+				WHERE BYGENRE = #{genre}
+				ORDER BY SONGNUMBER
+			) genre
+		)
+	WHERE rnum <![CDATA[>=]]> #{start} AND rnum<![CDATA[<=]]> #{end}
+	</select>
+	
+	<!-- 페이징 -->
+	<select id="pagetotal" resultType="int">
+		SELECT count(*) cnt FROM  Genre
 	</select>
 	
 	<!-- 최신 TOP100-->
 	<select id="song" resultType="genreDTO">
-		SELECT * FROM song1;
+		SELECT * FROM song1
 	</select>
 </mapper>

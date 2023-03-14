@@ -11,7 +11,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.java.food.dto.GenreDTO;
 import com.java.food.dto.playListDTO;
 
 @Repository
@@ -82,18 +81,22 @@ public List<playListDTO> selectPlayList(String id)
 ////////////////////////////////////////////////////////////
 //용준
 	// 장르별
-	public List<GenreDTO> getGenre(String a, int start, int end) {
+	public List getGenre(String genre, int start, int end) {
 		
 		Map map = new HashMap();
+		map.put("genre", genre);
 		map.put("start", start);
 		map.put("end", end);
-		return null;
+		
+		List list = sqlSession.selectList("mapper.javafood.genre",map);
+		return list;
 	}
 	
 	// 페이징
 	public int pagetotal() {
-	
-		return 0;
+		int totalcnt = sqlSession.selectOne("mapper.javafood.pagetotal");
+		System.out.println(totalcnt);
+		return totalcnt;
 	}
 
 ////////////////////////////////////////////////////////////

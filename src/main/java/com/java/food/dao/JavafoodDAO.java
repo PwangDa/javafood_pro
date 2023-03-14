@@ -1,6 +1,7 @@
 package com.java.food.dao;
 
 import java.util.List;
+import java.util.Map;
 
 import com.java.food.dto.playListDTO;
 
@@ -26,7 +27,7 @@ public interface JavafoodDAO {
 ////////////////////////////////////////////////////////////
 //용준
 	// 장르
-	List getGenre(String a, int start, int end);
+	List getGenre(String genre, int start, int end);
 	
 	// 페이징
 	int pagetotal();

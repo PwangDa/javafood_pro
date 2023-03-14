@@ -64,7 +64,6 @@ public class JavafoodServiceImpl implements JavafoodService {
 
 	@Override
 	public Map getGenre(String song, int pageNum, int countPerPage) {
-		System.out.println("6번 장르 실행");
 		
 
 		int start = 0;
