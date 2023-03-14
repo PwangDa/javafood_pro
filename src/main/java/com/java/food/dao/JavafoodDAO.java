@@ -1,7 +1,9 @@
 package com.java.food.dao;
 
 import java.util.List;
+import java.util.Map;
 
+import com.java.food.dto.FamousChartDTO;
 import com.java.food.dto.PlayListDTO;
 
 public interface JavafoodDAO {
@@ -14,8 +16,10 @@ public interface JavafoodDAO {
 	
 ////////////////////////////////////////////////////////////
 //귀범
-
-	public abstract List selectChart();
+	// 차트용
+	List<FamousChartDTO> selectChart(String songnumber);
+	// 페이징
+	Map selectPaging(String fc, int start, int end);
 	
 ////////////////////////////////////////////////////////////
 //범주
@@ -31,5 +35,7 @@ public interface JavafoodDAO {
 	// 페이징
 	int pagetotal();
 ////////////////////////////////////////////////////////////
+
+	
 
 }

@@ -16,6 +16,7 @@ public interface JavafoodService {
 ////////////////////////////////////////////////////////////
 //귀범
 	List getChart();
+	Map getChart2(String fc, int pageNum, int countPerPage);
 ////////////////////////////////////////////////////////////
 //범주
 	List<PlayListDTO> selectPlayList(String id);
@@ -28,4 +29,5 @@ public interface JavafoodService {
 	Map getGenre(String song, int pageNum, int countPerPage);
 	
 ////////////////////////////////////////////////////////////
+	
 }
