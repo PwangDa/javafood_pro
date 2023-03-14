@@ -1,0 +1,375 @@
+@charset "UTF-8";
+  		/*공통으로 적용 될거*/
+          body{
+            background-color: black;
+            margin: 0;
+        }
+        
+        body::-webkit-scrollbar {
+            width: 15px; /*스크롤바의 너비*/
+        }
+
+        body::-webkit-scrollbar-thumb {
+            background-color: rgb(92, 92, 92); /*스크롤바의 색상*/
+            border: none;
+        }
+
+        body::-webkit-scrollbar-track {
+            background-color: rgb(39, 39, 39); /*스크롤바 트랙 색상*/ 
+            border: none;
+        }
+
+        div{
+            /* border: 1px solid white; */
+            color : white;
+            /* vertical-align: middle; */
+        }
+        
+        img{
+        	border-radius: 12px;
+        }
+        
+        a{
+            text-decoration: none;
+            color: white;
+        }
+        
+        /* #cont{
+            background-image:
+            linear-gradient(
+                to bottom,
+                rgba(0, 0, 0, 0) 10%,
+                rgba(0, 0, 0, 0.25) 25%,
+                rgba(0, 0, 0, 0.5) 50%,
+                rgba(0, 0, 0, 0.75) 75%,
+                rgb(0, 0, 0) 100%
+            ),
+            url("${album_list[1].artist_img}") ; 
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            height: 550px;     
+            position: relative;
+        } */
+        
+        .text1{
+            color : white;
+            padding: 0px 13px;
+            position : absolute;
+            bottom : 0;
+        }
+        .text_box{
+            width: 640px;
+            height: 100px;
+            text-overflow: ellipsis;
+            overflow-y: scroll; 
+            padding: 7px;
+        }
+        .text_box::-webkit-scrollbar {
+            width: 5px; /*스크롤바의 너비*/
+        }
+
+        .text_box::-webkit-scrollbar-thumb {
+            background-color: rgb(92, 92, 92); /*스크롤바의 색상*/
+            border-radius: 15px;
+            border: none;
+        }
+
+        .text_box::-webkit-scrollbar-track {
+            background-color: rgb(53, 53, 53); /*스크롤바 트랙 색상*/
+            border-radius: 15px;
+            border: none;
+        }
+
+        /* 노래목록 style */
+        #cont1{
+            display : flex;
+            justify-content: center;
+            height: 80px;
+        }
+        .box1{
+           
+            width: 230px;
+            height: 60px;
+            margin: 0 15px;
+            text-align: left;     
+
+        }
+        
+        .box1_1{
+
+            width: 100px;
+            height: 60px;
+            margin: 0 15px;
+            text-align: left;  
+        }
+        
+        hr{
+            width: 62%;
+            border: 0;
+            border-top: 1px solid rgb(98, 98, 98);
+        }
+        .img1{
+            width: 60px;
+        }
+
+        .detail{
+            text-align: center;
+        }
+		
+		/* 댓글 style*/
+        .comment{
+            display: flex;
+            justify-content: center;
+            
+        }
+
+        .text2{
+            padding-top: 20px;
+        }
+        
+		/*textarea input 스타일*/
+        textarea{
+            width: 500px;
+            height: 110px;
+            padding: 10px;
+            margin: 11px;
+            box-sizing: border-box;
+            border-radius: 15px;
+            color: white;
+            border: none;
+            resize: none;
+            background-color: rgb(70, 70, 70);
+        }
+
+        .input1{
+            background-color: rgb(70, 70, 70);
+            color: white;
+            border-radius: 15px;
+            border: none;
+            height: 19px;
+        }
+        
+        .image1{
+            width: 90px;
+            display: block;
+            border-radius: 70%;
+            margin : 5px 0px 5px 40px;
+            
+        }
+        .btn{
+            color:white;
+            background-color:rgb(70, 70, 70);
+            padding: 15px 30px;
+            height: 90px;
+            margin: 10px;
+            border-radius: 15px;
+            border: none;
+        }
+
+        .btn:active{
+            transform: scale(1.1);
+        }
+        .btn:hover{
+            background-color:rgba(173, 173, 173, 0.545);
+        }
+
+        /* 답글용  아이디text*/
+        .input2{
+            background-color: transparent;
+            color: white;
+            /* border-radius: 15px; */
+            border: none;
+            border-bottom: 2px solid rgb(70, 70, 70);
+            height: 19px;
+            width: 90px;
+            margin: 10px 3px;
+        }
+         /* 답글용  내용text*/
+        .input3{
+            background-color: transparent;
+            color: white;
+            /* border-radius: 15px; */
+            border: none;
+            border-bottom: 2px solid rgb(70, 70, 70);
+            height: 19px;
+            width: 250px;
+            margin: 10px 3px;
+        }
+        /* 답글용  이미지*/
+        .image3{
+            margin: 10px 3px;
+        	width: 35px;
+        	height: 35px;
+        	border-radius: 70%;
+        }
+
+        /* 답글용  버튼*/
+        .btn1{
+            color:white;
+            background-color:rgb(70, 70, 70);
+            /* padding: 15px 30px; */
+            width: 50px;
+            height: 30px;
+            margin: 10px;
+            border-radius: 15px;
+            border: none;
+        }
+
+        .btn1:active{
+            transform: scale(1.1);
+        }
+        .btn1:hover{
+            background-color:rgba(173, 173, 173, 0.545);
+        }
+
+        .comment_1{
+            height: 40px;
+            /* vertical-align: top; */
+        }
+
+        .comment_1_1{
+            display: inline-block;
+            margin-right: 4px;
+            height: 20px;
+            vertical-align: top;
+        }
+        .comment_1_2{
+            height: 24px;
+            vertical-align: top;
+            margin: 12px 10px 0px 10px;
+        }
+        
+        .comment_1_3{
+           text-align: left;
+            width: 520px;
+            margin: 3px;
+            padding: 2px;
+        }
+
+
+        .command{
+            text-align: center;
+        }
+        
+        .cont2{
+            /* border: 1px solid rgb(70, 70, 70); */
+            width: 500px;
+            margin: 11px;
+            padding: 10px;
+            box-sizing: border-box;
+            border-radius: 15px;
+            text-align: left;
+        }
+
+        .id2{
+            /* border: 1px solid rgb(70, 70, 70); */
+            color :rgb(113, 113, 113);
+            border-radius: 15px;
+            width: 130px;
+            font-size: 15px;
+        }
+
+        .image2{
+            width: 75px;
+            border-radius: 70%;          
+        }
+        
+        /*댓글 입력한 날짜출력 스타일*/
+        .date1{
+           
+            border-radius: 15px;
+            margin: 11px;
+            padding: 1px;
+            text-align: right;
+            color :rgb(113, 113, 113);
+            font-size: 13px;
+        }
+        
+        #detail{
+        	text-align: left;
+        	font-size: 14px;
+            cursor: pointer;
+        }
+
+        .reply{
+            /* border: 1px solid white; */
+            display: inline-block;
+            width: 530px;
+            text-align: left;
+        }
+        
+        /* 앨범  < > 용 스타일*/
+        #cont3{
+            margin-top : 20px;
+            text-align: center;
+        }
+        #cont3_1{
+            
+            width: 900px;
+            height: 250px;
+            position: relative;
+            margin: 15px auto;
+            overflow: hidden;
+        }
+        
+        /*슬라이드 애니메이션*/
+       
+        li{
+            list-style-type: none;
+        }
+
+        .clides li:not(:last-child){
+            float: left;
+            margin-right: 30px;
+        }
+
+        .clides{
+            
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 5000px; /* 슬라이드할 사진과 마진 총 넓이 */
+            transition: left 0.6s;
+         }
+
+         .clides li{
+            float: left;
+            margin-right: 25px;
+
+            }
+            
+        /* < > 화살표 */    
+        .point{
+            border: 1px solid rgb(98, 98, 98);
+            background-color: transparent;
+            border-radius: 70%;
+            width : 30px;
+            height: 31px;
+            margin : 10px;
+            padding: 0px 3px;
+            padding-bottom: 3px;
+            font-size: 20px;
+            display: inline-block;
+            font-weight: 200;
+        }
+
+        .point:hover{
+            background-color: rgba(128, 128, 128, 0.652);
+            cursor: pointer;
+        }
+
+        .image{
+            width: 190px;
+        }
+        
+        .marLeft{
+        	margin-left: -885px;
+        }
+
+        .al_name{
+            /* border: 1px solid white; */
+            display: inline-block;
+            width: 180px;
+            
+        }
