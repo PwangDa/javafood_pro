@@ -119,11 +119,6 @@ public class JavafoodController {
 		mo.addAttribute(javaService.urselist());
 		return "lky/login";
 	}
-	@RequestMapping (value = "/login", method = RequestMethod.GET)
-	public String login(Model mo) {
-		mo.addAttribute(javaService.urselist());
-		return "lky/login";
-	}
 ////////////////////////////////////////////////////////////
 	//용준
 	@RequestMapping (value = "/genre", method = RequestMethod.GET)
