@@ -1,5 +1,7 @@
 package com.java.food.dao;
 
+import java.util.List;
+
 import org.apache.ibatis.session.SqlSession;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -19,7 +21,12 @@ SqlSession sqlSession;
 
 ////////////////////////////////////////////////////////////
 //귀범
-
+public List selectChart() {
+	List list = sqlSession.selectList("mapper.javafood");
+	
+	logger.info("list.size : "+ list.size());
+	return list;
+}
 ////////////////////////////////////////////////////////////
 //범주
 
