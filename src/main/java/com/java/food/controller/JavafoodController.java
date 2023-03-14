@@ -67,9 +67,11 @@ public class JavafoodController {
 		return "lky/login";
 	}
 ////////////////////////////////////////////////////////////
+	//용준
 	@RequestMapping (value = "/genre", method = RequestMethod.GET)
-	public void java5() {
-		//용준
+	public String java5() {
+		
+		return "lyj/Genre";
 	}
 ////////////////////////////////////////////////////////////
 }
