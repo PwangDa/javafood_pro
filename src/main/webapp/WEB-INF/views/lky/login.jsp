@@ -13,7 +13,7 @@
     <script src="https://code.jquery.com/jquery-3.6.3.js"></script>
 	<script link src ="javafoodScript/loginScript.js"></script>
 	
-	<link rel="stylesheet" href="javafoodCSS/loginCSS.css?css=css">
+	<link rel="stylesheet" href="/music/resources/style/loginCSS.css?css=css">
 	
 <c:if test="${good!=null }">
 	<c:if test="${good==1 }"><script>alert("회원가입 성공")</script></c:if>
