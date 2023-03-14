@@ -53,7 +53,7 @@
    <link rel="stylesheet" href="/music/resources/style/artistCSS.css">
 </head>
 <body  onscroll="headerbarToggle()">
-	<%-- <jsp:include page="menu.jsp"></jsp:include> --%>
+	<%--  <jsp:include page="menu.jsp"></jsp:include> --%>
     <div id = "home">
         <div id = "cont" class = "contain">     
             <div class = "text1"> 
