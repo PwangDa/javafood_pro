@@ -23,6 +23,7 @@ public interface JavafoodService {
 ////////////////////////////////////////////////////////////
 //범주
 	List<PlayListDTO> selectPlayList(String id);
+	List<PlayListDTO> selectPlayListContent(String pl_id);
 ////////////////////////////////////////////////////////////
 //경용
 	List urselist();

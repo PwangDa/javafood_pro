@@ -27,6 +27,7 @@ public interface JavafoodDAO {
 ////////////////////////////////////////////////////////////
 //범주
 	List<PlayListDTO> selectPlayList(String id);
+	List<PlayListDTO> selectPlayListContent(String pl_id);
 ////////////////////////////////////////////////////////////
 //경용
 	List listID(); 
@@ -34,7 +35,7 @@ public interface JavafoodDAO {
 ////////////////////////////////////////////////////////////
 //용준
 	// 장르
-	List getGenre(String a, int start, int end);
+	List getGenre(String genre, int start, int end);
 	
 	// 페이징
 	int pagetotal();

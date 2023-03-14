@@ -41,13 +41,25 @@
 	</select>
 
 	<!-- 장르별-->
-	<select id="genre" resultType="genreDTO">
-		SELECT * FROM Genre;
+	<select id="genre" resultType="genreDTO" parameterType="java.util.HashMap">
+		SELECT * FROM (
+			SELECT rownum AS rnum, genre.* FROM (
+				SELECT * FROM genre
+				WHERE BYGENRE = #{genre}
+				ORDER BY SONGNUMBER
+			) genre
+		)
+	WHERE rnum <![CDATA[>=]]> #{start} AND rnum<![CDATA[<=]]> #{end}
+	</select>
+	
+	<!-- 페이징 -->
+	<select id="pagetotal" resultType="int">
+		SELECT count(*) cnt FROM  Genre
 	</select>
 	
 	<!-- 최신 TOP100-->
 	<select id="song" resultType="genreDTO">
-		SELECT * FROM song1;
+		SELECT * FROM song1
 	</select>
 	<!-- 	회원 아이디 리스트 -->
 	<select id="login" resultType="loginDTO">
@@ -67,5 +79,17 @@
 			playList
 		WHERE
 			id2 = #{id}
+	</select>
+	
+	<!-- 플레이 리스트 내역(Content) 불러오기 -->
+	<select id="selectPlayListContent" resultType="playListDTO" parameterType="String">
+		SELECT
+			plc.pl_id, plc.listNumber, plc.songName, plc.songNumber, s.Link
+		FROM
+			playList_Content plc, song1 s
+		WHERE
+			plc.songNumber = s.songNumber
+			AND
+			plc.pl_id = #{pl_id}
 	</select>
 </mapper>

@@ -18,7 +18,7 @@
 	
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" href="javafoodCSS/NewGenre.css?css=css">
+<link rel="stylesheet" href="resources/style/genre.css">
 
        
 </head>
@@ -210,9 +210,12 @@
  pageNum : ${pageNum }<br>
  countPerPage : ${countPerPage }<br> --%>
  <%
-	int totalCount = (int)request.getAttribute("totalCount");
-	int pageNum = (int)request.getAttribute("pageNum");
-	int countPerPage = (int)request.getAttribute("countPerPage");
+ 	String temp_totalCount = (String)request.getAttribute("totalCount");
+ 	String temp_pageNum = (String)request.getAttribute("pageNum");
+ 	String temp_countPerPage = (String)request.getAttribute("countPerPage");
+	int totalCount =  Integer.parseInt(temp_totalCount);
+	int pageNum =  Integer.parseInt(temp_pageNum);
+	int countPerPage =  Integer.parseInt(temp_countPerPage);
 	int lastPage = (int)Math.ceil( ((double)totalCount / countPerPage) / countPerPage);
 	int section = 2; // 페이징 보여줄 갯수
 	
@@ -260,7 +263,7 @@
 
 	</div>
 	
-	<script link src ="javafoodScript/NewGenre.js"></script>
+	<script link src ="resources/script/genre.js"></script>
 </body>
 
 </html>
