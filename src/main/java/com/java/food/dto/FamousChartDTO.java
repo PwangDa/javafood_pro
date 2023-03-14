@@ -19,6 +19,7 @@ public class FamousChartDTO {
 	private String album_name;
 	private String album_add;
 	private String artist_add;
+	private String test;
 	
 	
 	public String getSongnumber() {
