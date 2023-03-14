@@ -37,7 +37,6 @@ public class JavafoodController {
 		
 		return url;
 	}
-	@Autowired
 	
 ////////////////////////////////////////////////////////////
 	//다영
