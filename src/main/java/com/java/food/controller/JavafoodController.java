@@ -16,6 +16,7 @@ import com.java.food.service.JavafoodService;
 @Controller
 public class JavafoodController {
 	
+	@Autowired
 	JavafoodService javaService;
 
 	@RequestMapping(value = "/dsaa",method = RequestMethod.GET)
