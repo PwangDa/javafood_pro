@@ -1,6 +1,5 @@
 package com.java.food.controller;
 
-<<<<<<< HEAD
 
 import java.util.List;
 
@@ -9,11 +8,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import javax.servlet.http.HttpServletRequest;
 
 
-=======
 import org.springframework.beans.factory.annotation.Autowired;
 import javax.servlet.http.HttpServletRequest;
 
->>>>>>> aa6a1447ffb0c26e90ad8c8a24c079295fd9ef57
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -65,7 +62,7 @@ public class JavafoodController {
 		//Service에서 플레이 리스트를 불러오는 메서드 실행하기
 		//메서드 실행 결과(리스트)를 리스트에 담기
 		
-		List playList = 
+		List playList = null;
 				
 	
 		return result;
