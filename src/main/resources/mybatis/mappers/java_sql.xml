@@ -7,6 +7,10 @@
 	<select id="viewcomment" resultType="commentDTO">
 		SELECT * FROM comment_com
 	</select>
+	
+	<select id="viewcomment1" resultType="commentDTO">
+		SELECT * FROM comment_com
+	</select>
 
 
 </mapper>
