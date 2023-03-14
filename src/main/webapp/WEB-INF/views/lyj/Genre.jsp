@@ -24,7 +24,7 @@
 </head>
 <body>
 
-<jsp:include page="/menu.jsp"></jsp:include>
+<jsp:include page=""></jsp:include>
 <%-- <h1>${login }</h1> --%>
     <!-- <header id ="menu">
         <span style="font-size: 34px; font-weight: 600;">Music</span>
