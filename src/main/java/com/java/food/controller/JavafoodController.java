@@ -153,7 +153,7 @@ public class JavafoodController {
 	}
 ////////////////////////////////////////////////////////////
 	//경용
-	@RequestMapping (value = "/login", method = RequestMethod.GET)
+	@RequestMapping (value = "/login")
 	public String loginpage(Model mo,
 			@RequestParam Map<String, Object> map
 			 ){
@@ -163,7 +163,7 @@ public class JavafoodController {
 		if(map.get("membership")!=null) {
 			mo.addAttribute("membership",map.get("membership"));
 		}
-		mo.addAttribute(javaService.urselist());
+		mo.addAttribute("ll",javaService.urselist());
 		return "lky/login";
 	}
 	@ResponseBody

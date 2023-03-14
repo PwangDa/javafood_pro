@@ -39,6 +39,7 @@
 					</div>
 				</div>
 			</form>
+			
 	        <form method="post" action="javafood?javafood=4">
 	            <div class="head">
 	             	<table class="tdtd">
@@ -177,6 +178,11 @@
 			    </div >
 		    </div>
 		</c:if>
+		
+		<h1>TEST</h1>
+		<c:forEach items="${ll }" var="i">
+			<c:out value="${i.id }"/><br>
+		</c:forEach>
 		
 		<%-- 
 		<c:if test="${llll!=null }">
