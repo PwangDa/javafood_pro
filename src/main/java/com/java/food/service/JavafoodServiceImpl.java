@@ -20,6 +20,13 @@ public class JavafoodServiceImpl implements JavafoodService {
 		
 		return Artist_list;
 	}
+	@Override
+	public List getComment(String artist) {
+		List Comment_list = javaDAO.viewComment(artist);
+		
+		return Comment_list;
+		
+	}
 ////////////////////////////////////////////////////////////
 //귀범
 	@Override
