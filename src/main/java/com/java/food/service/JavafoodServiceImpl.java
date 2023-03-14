@@ -11,7 +11,7 @@ import com.java.food.dao.JavafoodDAO;
 public class JavafoodServiceImpl implements JavafoodService {
 	
 	@Autowired
-	JavafoodDAO javadao;
+	JavafoodDAO javaDAO;
 ////////////////////////////////////////////////////////////
 //다영
 
@@ -21,9 +21,9 @@ public class JavafoodServiceImpl implements JavafoodService {
 	public List getChart() {
 		List list = null;
 		
-		list = javadao.selectChart();
+		list = javaDAO.selectChart();
 		
-		return javadao.selectChart();
+		return javaDAO.selectChart();
 		
 	}
 ////////////////////////////////////////////////////////////
