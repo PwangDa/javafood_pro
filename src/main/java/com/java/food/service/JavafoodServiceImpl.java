@@ -8,6 +8,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.java.food.dao.JavafoodDAO;
+import com.java.food.dto.FamousChartDTO;
+import com.java.food.dto.PlayListDTO;
+import com.java.food.dto.login_DTO;
 
 @Service
 public class JavafoodServiceImpl implements JavafoodService {
@@ -16,12 +19,24 @@ public class JavafoodServiceImpl implements JavafoodService {
 	JavafoodDAO javaDAO;
 ////////////////////////////////////////////////////////////
 //다영
+	/**
+	 * 다영
+	 * 아티스트 페이지 출력 메소드
+	 * 전달인자 : String (아티스트 이름)
+	 * @return : list
+	 */
 	@Override
 	public List getArtist(String artist) {
 		List Artist_list = javaDAO.viewArtist(artist);
 		
 		return Artist_list;
 	}
+	/**
+	 * 다영
+	 * 댓글 출력 메소드
+	 * 전달인자 : String (아티스트 이름)
+	 * @return : list
+	 */
 	@Override
 	public List getComment(String artist) {
 		List Comment_list = javaDAO.viewComment(artist);
@@ -29,35 +44,65 @@ public class JavafoodServiceImpl implements JavafoodService {
 		return Comment_list;
 		
 	}
+	/**
+	 * 다영
+	 * 댓글 출력 메소드
+	 * 전달인자 : String (아티스트 이름)
+	 * @return : list
+	 */
+	@Override
+	public List getAlbum(String album) {
+		List Album_list = javaDAO.viewAlbum(album);
+		
+		return Album_list;
+		
+	}
 ////////////////////////////////////////////////////////////
 //귀범
+	// 차트
 	@Override
-	public List getChart() {
-		List list = null;
-
-
+	public List getChart(){
 		
-		list = javaDAO.selectChart();
+		String songnumber = null;
 		
-		return javaDAO.selectChart();
+		List<FamousChartDTO> chartlist = javaDAO.selectChart(songnumber);
+		
+		return chartlist;
+		
+		
+	}
+	
+	
+	public int Chart(FamousChartDTO dto) {
+		return javaDAO.chart
 		
 	}
 ////////////////////////////////////////////////////////////
 //범주
 	@Override
-	public List selectPlayList(String id)
+	public List<PlayListDTO> selectPlayList(String id)
 	{
-		List result = null;
+		System.out.println("JavafoodServicelImpl의 selectPlayList 메서드 실행됨."); //확인용
+		List<PlayListDTO> result = null;
 		
-//		result = javaDAO.selectPlayList(id);
+		//JavafoodDAO의 selectPlayList 메서드를 실행하기
+		//메서드의 결과(List)를 필드에 담기
+		result = javaDAO.selectPlayList(id);
+		System.out.println("javaDAO의 selectPlayList를 실행하여 얻은 리스트의 크기 : " + result.size() ); //확인용
 		
 		return result;
 	}
 ////////////////////////////////////////////////////////////
 //경용
+	//회원 목록
 	@Override
-	public List list() {
-		return null;
+	public List urselist() {
+		return javaDAO.listID();
+	}
+	//회원가입
+	@Override
+	public int addid(login_DTO vo) {
+		return javaDAO.addId(vo);
 	}
 ////////////////////////////////////////////////////////////
 	// 용준 장르별 페이징

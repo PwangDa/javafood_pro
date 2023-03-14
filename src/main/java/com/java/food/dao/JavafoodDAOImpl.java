@@ -11,7 +11,14 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+<<<<<<< HEAD
 import com.java.food.dto.playListDTO;
+=======
+import com.java.food.dto.FamousChartDTO;
+import com.java.food.dto.GenreDTO;
+import com.java.food.dto.PlayListDTO;
+import com.java.food.dto.login_DTO;
+>>>>>>> dc64e985d8b4c4be28f3cc59c4a44930d242cefe
 
 @Repository
 public class JavafoodDAOImpl implements JavafoodDAO {
@@ -34,7 +41,22 @@ SqlSession sqlSession;
 			logger.info("JavafoodDAOImpl > viewArtist 실행");
 			List list = new ArrayList();
 			list = sqlSession.selectList("mapper.javafood.viewArtist", artist);
-			logger.info("list.size >>>"+list.size()); 
+			logger.info("Artist list.size >>>"+list.size()); 
+			
+			return list;
+		}
+		/**
+		 * 다영
+		 * 앨범 페이지 출력 메소드
+		 * @param  : album > String (앨범이름)
+		 * @return : list
+		 */
+		@Override
+		public List viewAlbum(String album) {
+			logger.info("JavafoodDAOImpl > viewAlbum 실행");
+			List list = new ArrayList();
+			list = sqlSession.selectList("mapper.javafood.viewAlbum", album);
+			logger.info("Album list.size >>>"+list.size()); 
 			
 			return list;
 		}
@@ -47,37 +69,74 @@ SqlSession sqlSession;
 		 */
 		@Override
 		public List viewComment(String artist) {
-			logger.info("JavafoodDAOImpl > viewArtist 실행");
+			logger.info("JavafoodDAOImpl > viewComment 실행");
 			List list = new ArrayList();
 			list = sqlSession.selectList("mapper.javafood.viewComment", artist);
-			logger.info("list.size >>>"+list.size()); 
+			logger.info("Comment list.size >>>"+list.size()); 
 			
 			return list;
 		}
 
 ////////////////////////////////////////////////////////////
 //귀범
-public List selectChart() {
-	List list = sqlSession.selectList("mapper.javafood");
-	
+
+@Override
+public List<FamousChartDTO> selectChart(String songnumber) {
+	List list = new ArrayList();
+	list = sqlSession.selectList("mapper.javafood.selectChart", songnumber);
 	logger.info("list.size : "+ list.size());
 	return list;
+}
+
+public Map selectPaging(String fc, int start, int end) {
+	
+	Map map = new HashMap();
+	map.put("start", start);
+	map.put("end", end);
+	return null;
+	
 }
 ////////////////////////////////////////////////////////////
 //범주
 @Override
-public List<playListDTO> selectPlayList(String id)
+public List<PlayListDTO> selectPlayList(String id)
 {
-	List<playListDTO> result = null;
+	System.out.println("JavafoodDAOImpl의 selectPlayList 메서드 실행됨."); //확인용
 	
+	List<PlayListDTO> result = null;
+	
+	//sql을 이용하여 DB에 접속 후 플레이 리스트 가져오기
+	//가져온 리스트를 필드에 담기
+	result = sqlSession.selectList("mapper.javafood.selectPlayList", id);
+	System.out.println("sqlSession을 이용하여 가져온 리스트의 크기는 : " + result.size() ); //확인용
 	
 	return result;
 }
 ////////////////////////////////////////////////////////////
 //경용
-	public String test() {
-		return null;
+/**
+ * 아이디 리스트
+ * @return list : 회원정보를 리턴해줍니다.
+ */
+public List listID() {
+	List list = new ArrayList();
+	list = sqlSession.selectList("mapper.javafood.login");
+	return list;
+}
+/**
+ * 회원가입
+ * @param vo : 가입할 회원정보 DTO를 넣어줍니다.
+ */
+public int addId(login_DTO vo) {
+	int i =0;
+	try {
+		sqlSession.selectList("mapper.javafood.newures",vo);
+		i=1;
+	} catch (Exception e) {
+		e.printStackTrace();
 	}
+	return i;
+}
 ////////////////////////////////////////////////////////////
 //용준
 	// 장르별
@@ -98,6 +157,9 @@ public List<playListDTO> selectPlayList(String id)
 		System.out.println(totalcnt);
 		return totalcnt;
 	}
+
+	
+
 
 ////////////////////////////////////////////////////////////
 

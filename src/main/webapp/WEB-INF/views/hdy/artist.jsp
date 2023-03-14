@@ -1,10 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"
-    import = "com.java.food.dao.JavafoodDAO"
-    import = "comment.CommentVO"
-    import = "comment.CommentServlet"
-    import = "album.info.AlbumDAO"
-    import = "album.info.AlbumVO"
     import = "java.sql.Date"
     import = "java.util.List"
     %>
@@ -16,20 +11,6 @@
 <head>
 <meta charset="UTF-8">
 <title>Artist.jsp TTTTest전용</title>
- <script>
- function fn_sendComment(){
- 	
- 	var frmCommand = document.frmComment;
- 	var id = frmCommand.id.value;
- 	var cont = frmCommand.cont.value;
- 	if(id.length == 0 || id == ""){
- 		alert("아이디를 입력해주세요")
- 	}else if(cont.length == 0 || cont == ""){
- 		alert("내용을 입력해주세요")
- 	}
- } 
- 
- </script>
  <script link src ="/music/resources/script/artistScript.js"></script>
  <style>
   	    #cont{
@@ -50,9 +31,9 @@
             position: relative;
         }
    </style>
-   <link rel="stylesheet" href="/music/resources/style/artistCSS.css">
+<link rel="stylesheet" href="/music/resources/style/artistCSS.css">
 </head>
-<body  onscroll="headerbarToggle()">
+<body>
 	<%--  <jsp:include page="menu.jsp"></jsp:include> --%>
     <div id = "home">
         <div id = "cont" class = "contain">     
@@ -71,11 +52,11 @@
            		<c:forEach var="album" items="${album_list}" end="5" varStatus="loop">
 	            <div id = "cont1">
 	                <div class = "box1_1">
-	                    <a href="/javafood_team/javafood?javafood=AlbumInfo&albumId=${album.album_add}"><img class="img1" src="${album.album_cover }"></a>
+	                    <a href="/music/albumpage?album=${album.album_name}"><img class="img1" src="${album.album_cover }"></a>
 	                </div>
 	                <div class = "box1 text2"><a href="${loop.count}"><strong>${album.music_name}</strong></a></div>
 	                <div class = "box1 text2" style = "color:rgb(192, 192, 192);">${album_list[0].artistname }</div>
-	                <div class = "box1 text2"><a style = "color:rgb(192, 192, 192);" href="/javafood_team/javafood?javafood=AlbumInfo&albumId=${album.album_add}">${album.album_name }</a></div>
+	                <div class = "box1 text2"><a style = "color:rgb(192, 192, 192);" href="/music/albumpage?album=${album.album_name}">${album.album_name }</a></div>
 	            </div>
 	            <hr>
             	</c:forEach>
@@ -84,11 +65,11 @@
                     <c:forEach var="album" items="${album_list}" begin="6" varStatus="loop">
 	            		<div id = "cont1">
 			                <div class = "box1_1">
-			                    <a href="/javafood_team/javafood?javafood=AlbumInfo&albumId=${album.album_add}"><img class="img1" src="${album.album_cover }"></a>
+			                    <a href="/music/albumpage?album=${album.album_name}"><img class="img1" src="${album.album_cover }"></a>
 			                </div>
 			                <div class = "box1 text2"><a href="${loop.count}"><strong>${album.music_name}</strong></a></div>
 			                <div class = "box1 text2" style = "color:rgb(192, 192, 192);">${album_list[0].artistname }</div>
-			                <div class = "box1 text2"><a style = "color:rgb(192, 192, 192);" href="/javafood_team/javafood?javafood=AlbumInfo&albumId=${album.album_add}">${album.album_name }</a></div>
+			                <div class = "box1 text2"><a style = "color:rgb(192, 192, 192);" href="/music/albumpage?album=${album.album_name}">${album.album_name }</a></div>
 	            		</div>
 	            		<hr>
             		</c:forEach>
@@ -104,9 +85,9 @@
 				<%-- 앨범 부분 forEach --%>
                 <c:forEach var ="album" items="${album_list}" varStatus="loop">
                     <li>
-                        <a href="/javafood_team/javafood?javafood=AlbumInfo&albumId=${album.album_add}"><img  class="image" src="${album.album_cover }"></a>
+                        <a href="/music/albumpage?album=${album.album_name}"><img  class="image" src="${album.album_cover }"></a>
                         <br>
-                        <a style = "font-size:14px;" href="/javafood_team/javafood?javafood=AlbumInfo&albumId=${album.album_add}"><span class="al_name"><strong>${album.album_name }</strong></span></a>
+                        <a style = "font-size:14px;" href="/music/albumpage?album=${album.album_name}"><span class="al_name"><strong>${album.album_name }</strong></span></a>
                     </li>
                 </c:forEach>
                 </ul>
