@@ -33,7 +33,7 @@ SqlSession sqlSession;
 			logger.info("JavafoodDAOImpl > viewArtist 실행");
 			List list = new ArrayList();
 			list = sqlSession.selectList("mapper.javafood.viewArtist", artist);
-			logger.info("list.size >>>"+list.size()); 
+			logger.info("Artist list.size >>>"+list.size()); 
 			
 			return list;
 		}
@@ -46,10 +46,10 @@ SqlSession sqlSession;
 		 */
 		@Override
 		public List viewComment(String artist) {
-			logger.info("JavafoodDAOImpl > viewArtist 실행");
+			logger.info("JavafoodDAOImpl > viewComment 실행");
 			List list = new ArrayList();
 			list = sqlSession.selectList("mapper.javafood.viewComment", artist);
-			logger.info("list.size >>>"+list.size()); 
+			logger.info("Comment list.size >>>"+list.size()); 
 			
 			return list;
 		}
