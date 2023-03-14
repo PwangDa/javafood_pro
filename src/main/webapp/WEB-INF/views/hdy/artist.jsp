@@ -31,9 +31,9 @@
             position: relative;
         }
    </style>
-   <link rel="stylesheet" href="/music/resources/style/artistCSS.css">
+<link rel="stylesheet" href="/music/resources/style/artistCSS.css">
 </head>
-<body  onscroll="headerbarToggle()">
+<body>
 	<%--  <jsp:include page="menu.jsp"></jsp:include> --%>
     <div id = "home">
         <div id = "cont" class = "contain">     
