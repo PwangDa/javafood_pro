@@ -169,7 +169,7 @@
 					            <button class="btnClear" type="button" ></button>
 					            <input class="sub sub1" type="submit" value="Log In"><br>
 					            <span class = "chec"><input type="checkbox" name="ID" value="ID">Remember me</span> <span class ="chec" style= "margin-left :77px;">계정 찾기</span>
-					            <p><a href="music/login?membership=0" class="at"><c:out value="아직 JavaMusic을 사용하고 있지 않으신가요? 가입하기"/></a></p>
+					            <p><a href="login?membership=0" class="at"><c:out value="아직 JavaMusic을 사용하고 있지 않으신가요? 가입하기"/></a></p>
 					        </div>
 				        </div>
 				    </form>
@@ -178,6 +178,7 @@
 		    </div>
 		</c:if>
 		
+		<%-- 
 		<c:if test="${llll!=null }">
 			<div class="search hidden">
 		   	<h1>찾는 방법을 선택해 주세요.</h1>
@@ -210,7 +211,7 @@
 		      <input class="searchsubmit" type="submit" value="확인">
 		   </div>
 		</c:if>
-		
+		--%>
 		</body>
 	</html>
 	<br>

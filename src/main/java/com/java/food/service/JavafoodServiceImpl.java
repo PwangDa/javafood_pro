@@ -127,8 +127,16 @@ public class JavafoodServiceImpl implements JavafoodService {
 	}
 	//회원가입
 	@Override
-	public int addid(login_DTO vo) {
-		return javaDAO.addId(vo);
+	public int addid (Map<String, Object> map) {
+		login_DTO dto = new login_DTO();
+		dto.setId( (String) map.get("Id1") );
+		dto.setPw( (String) map.get("PW1") );
+		dto.setNic( (String) map.get("nic") );
+		dto.setName( (String) map.get("name") );
+		dto.setEmail( (String) map.get("mail") );
+		dto.setPn( (String) map.get("pn1")+"-"+map.get("pn2") );
+		dto.setPhone( (String) map.get("phone1")+"-"+map.get("phone2")+"-"+map.get("phone3") );
+		return javaDAO.addId(dto);
 	}
 ////////////////////////////////////////////////////////////
 	// 용준 장르별 페이징
