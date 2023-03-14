@@ -49,9 +49,9 @@ public class JavafoodController {
 ////////////////////////////////////////////////////////////
 	//범주
 	@RequestMapping("playList")
-	public String selectPlayList(HttpServletRequest request)
+	public String selectPlayList(HttpServletRequest request, Model model)
 	{
-		String result = "playList/playList"; 
+		String result = "playList/playList"; // /view/playList/playList.jsp로 이동.
 		
 		System.out.println("JavafoodController의 selectPlayList 메서드 실행됨."); //확인용
 		
@@ -64,7 +64,8 @@ public class JavafoodController {
 		
 //		List playList = javaService.selectPlayList(id);
 				
-	
+//		model.addAttribute("playList", playlist);
+		
 		return result;
 	}
 ////////////////////////////////////////////////////////////
