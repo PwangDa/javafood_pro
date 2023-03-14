@@ -71,9 +71,16 @@ public List selectChart() {
 	}
 ////////////////////////////////////////////////////////////
 //용준
+	// 장르별
 	public List<GenreDTO> getGenre(String a, int start, int end) {
 		
 		return null;
+	}
+	
+	// 페이징
+	public int pagetotal() {
+	
+		return 0;
 	}
 
 ////////////////////////////////////////////////////////////
