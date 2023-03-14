@@ -2,6 +2,12 @@ package com.java.food.controller;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
+import javax.servlet.http.HttpServletRequest;
+
+
+import org.springframework.beans.factory.annotation.Autowired;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,7 +42,7 @@ public class JavafoodController {
 		return "hdy/artist";
 	}
 ////////////////////////////////////////////////////////////
-	@RequestMapping(value = "chart", method = RequestMethod.GET)
+	@RequestMapping(value = "/chart", method = RequestMethod.GET)
 	public void java2() {
 		//귀범
 	}

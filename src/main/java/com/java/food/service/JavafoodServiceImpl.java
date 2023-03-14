@@ -34,19 +34,13 @@ public class JavafoodServiceImpl implements JavafoodService {
 	@Override
 	public List getChart() {
 		List list = null;
-<<<<<<< HEAD
 
-		list = javadao.selectChart();
 
-		return javadao.selectChart();
-
-=======
 		
 		list = javaDAO.selectChart();
 		
 		return javaDAO.selectChart();
 		
->>>>>>> f1d1f2c0d3cf86f860527f4d45aae59c286dd831
 	}
 ////////////////////////////////////////////////////////////
 //범주
@@ -69,8 +63,8 @@ public class JavafoodServiceImpl implements JavafoodService {
 		int end = 0;
 		start = (countPerPage * (pageNum - 1)) + 1;
 		end = start + countPerPage - 1;
-		List list = javadao.getGenre(song, start, end);
-		int totalCount = javadao.pagetotal();
+		List list = javaDAO.getGenre(song, start, end);
+		int totalCount = javaDAO.pagetotal();
 
 		Map map = new HashMap();
 		map.put("list", list);

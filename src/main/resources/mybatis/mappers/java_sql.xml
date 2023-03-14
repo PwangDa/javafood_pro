@@ -24,8 +24,18 @@
 	</select>
 	
 	<!-- 인기차트 -->
-	<select id="chart" resultType="chartDTO">
-		SELECT * FROM Genre;
+	<select id="chart" resultType="chartDTO" parameterType="String">
+		<![CDATA[
+			SELECT * FROM ( 
+				SELECT rownum num, genre.* FROM 
+					( SELECT RANK() OVER (ORDER BY FAMOUS DESC) 
+						AS RANKING, a.* FROM ( SELECT (HITS *1) + (LIKES * 1.5) 
+							AS FAMOUS, s.*  FROM Genre s ) a ) genre WHERE country =?)
+			WHERE num >=? AND num <=? 
+		]]>
+		<foreach item="not" collection="list" open="(" separator="," close=")">
+			#{not}
+		</foreach>
 	</select>
 
 	<!-- 장르별-->
