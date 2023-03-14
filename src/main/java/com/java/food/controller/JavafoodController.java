@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 public class JavafoodController {
 ////////////////////////////////////////////////////////////
-	@RequestMapping
+	@RequestMapping(value = "artist")
 	public void java1() {
 		//다영
 	}
