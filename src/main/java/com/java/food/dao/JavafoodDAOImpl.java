@@ -1,7 +1,9 @@
 package com.java.food.dao;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 import org.slf4j.Logger;
@@ -82,6 +84,9 @@ public List<playListDTO> selectPlayList(String id)
 	// 장르별
 	public List<GenreDTO> getGenre(String a, int start, int end) {
 		
+		Map map = new HashMap();
+		map.put("start", start);
+		map.put("end", end);
 		return null;
 	}
 	
