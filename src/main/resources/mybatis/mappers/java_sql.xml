@@ -11,7 +11,8 @@
 	<select id="viewcomment1" resultType="commentDTO">
 		SELECT * FROM comment_com
 	</select>
-
+	
+	<!-- 인기차트 -->
 	<select id="chart" resultType="chartDTO">
 		SELECT * FROM Genre;
 	</select>
