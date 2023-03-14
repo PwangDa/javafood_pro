@@ -1,7 +1,9 @@
 package com.java.food.controller;
 
 import java.util.List;
+import java.util.Map;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -47,8 +49,7 @@ public class JavafoodController {
 		model.addAttribute("chart", chart);
 		
 		return "chart/chart";
-		
-		
+
 	}
 ////////////////////////////////////////////////////////////
 	//범주

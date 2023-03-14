@@ -15,7 +15,7 @@
 <title>JavaFood Music</title>
 
 <script src="https://code.jquery.com/jquery-3.6.3.js"></script>
-<link rel="stylesheet" href="/music/resources/style/chartCSS.css">
+<link rel="stylesheet" href="resources/style/chartCSS.css">
 
 </head>
 <!-- <jsp:include page="/views/menu.jsp"></jsp:include> -->
@@ -98,9 +98,9 @@
 		</table>
 
 <%
-int totalCount = (int) request.getAttribute("totalCount");
-int pageNum = (int) request.getAttribute("pageNum");
-int countPerPage = (int) request.getAttribute("countPerPage");
+int totalCount = Integer.parseInt( (String)request.getAttribute("totalCount"));
+int pageNum = Integer.parseInt( (String) request.getAttribute("pageNum"));
+int countPerPage = Integer.parseInt( (String) request.getAttribute("countPerPage"));
 // int / int = int
 // double / int = double
 int lastPage = (int) Math.ceil((double) totalCount / countPerPage);
@@ -148,7 +148,7 @@ if (lastSec > lastPage) {
 
 		</div>
 	</div>
-<script link src="/music/resources/script/chartScript.js"></script>
+<script link src="resources/script/chartScript.js"></script>
 
 
 </body>
