@@ -2,12 +2,6 @@ package com.java.food.controller;
 
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
-
-import javax.servlet.http.HttpServletRequest;
-
-
-import org.springframework.beans.factory.annotation.Autowired;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,10 +18,30 @@ public class JavafoodController {
 	
 	@Autowired
 	JavafoodService javaService;
+
+	@RequestMapping(value = "/dsaa",method = RequestMethod.GET)
+	public String java(
+			
+			
+			@RequestParam(value = "me",required=false) String url
+			) {
+		System.out.println("접속");
+		if(url != null) {
+			if(url.equals("login/mypage")) {
+				ja();
+			}
+			
+		}else {
+			url="menu";
+		}
+		
+		return url;
+	}
+	@Autowired
 	
 ////////////////////////////////////////////////////////////
 	//다영
-	@RequestMapping(value = "/artist", method = RequestMethod.GET)
+	@RequestMapping(value = "/artistpage", method = RequestMethod.GET)
 	public String java1(Model model,
 			@RequestParam("artist") String artist
 			) {
@@ -73,6 +87,10 @@ public class JavafoodController {
 	@RequestMapping (value = "/login/mypage", method = RequestMethod.GET)
 	public String java4() {
 		System.out.println("ddd");
+		return "lky/login";
+	}
+	
+	public String ja() {
 		return "lky/login";
 	}
 ////////////////////////////////////////////////////////////
