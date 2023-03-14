@@ -14,6 +14,7 @@ import org.springframework.stereotype.Repository;
 import com.java.food.dto.FamousChartDTO;
 import com.java.food.dto.GenreDTO;
 import com.java.food.dto.PlayListDTO;
+import com.java.food.dto.login_DTO;
 
 @Repository
 public class JavafoodDAOImpl implements JavafoodDAO {
@@ -37,6 +38,21 @@ SqlSession sqlSession;
 			List list = new ArrayList();
 			list = sqlSession.selectList("mapper.javafood.viewArtist", artist);
 			logger.info("Artist list.size >>>"+list.size()); 
+			
+			return list;
+		}
+		/**
+		 * 다영
+		 * 앨범 페이지 출력 메소드
+		 * @param  : album > String (앨범이름)
+		 * @return : list
+		 */
+		@Override
+		public List viewAlbum(String album) {
+			logger.info("JavafoodDAOImpl > viewAlbum 실행");
+			List list = new ArrayList();
+			list = sqlSession.selectList("mapper.javafood.viewAlbum", album);
+			logger.info("Album list.size >>>"+list.size()); 
 			
 			return list;
 		}
@@ -94,9 +110,29 @@ public List<PlayListDTO> selectPlayList(String id)
 }
 ////////////////////////////////////////////////////////////
 //경용
-	public String test() {
-		return null;
+/**
+ * 아이디 리스트
+ * @return list : 회원정보를 리턴해줍니다.
+ */
+public List listID() {
+	List list = new ArrayList();
+	list = sqlSession.selectList("mapper.javafood.login");
+	return list;
+}
+/**
+ * 회원가입
+ * @param vo : 가입할 회원정보 DTO를 넣어줍니다.
+ */
+public int addId(login_DTO vo) {
+	int i =0;
+	try {
+		sqlSession.selectList("mapper.javafood.newures",vo);
+		i=1;
+	} catch (Exception e) {
+		e.printStackTrace();
 	}
+	return i;
+}
 ////////////////////////////////////////////////////////////
 //용준
 	// 장르별
