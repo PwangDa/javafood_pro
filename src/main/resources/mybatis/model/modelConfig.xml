@@ -6,4 +6,8 @@
 	<typeAliases>
 		<typeAlias type="com.java.food.dto.CommentDTO" alias="commentDTO" />
 	</typeAliases>
+	
+	<typeAliases>
+		<typeAlias type="com.java.food.dto.FamousChartDTO" alias="chartDTO"/>
+	</typeAliases>
 </configuration>
