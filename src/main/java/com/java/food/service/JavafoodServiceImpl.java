@@ -74,7 +74,9 @@ public class JavafoodServiceImpl implements JavafoodService {
 	
 	
 	public int Chart(FamousChartDTO dto) {
-		return javaDAO.chart
+//		return javaDAO.chart
+		
+		return (Integer) null;
 		
 	}
 ////////////////////////////////////////////////////////////
