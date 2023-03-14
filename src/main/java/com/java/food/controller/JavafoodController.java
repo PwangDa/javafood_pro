@@ -1,5 +1,7 @@
 package com.java.food.controller;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -20,9 +22,12 @@ public class JavafoodController {
 	}
 ////////////////////////////////////////////////////////////
 	@RequestMapping("playList")
-	public void java3()
+	public void selectPlayList(HttpServletRequest request)
 	{
 		//범주
+		System.out.println("JavafoodController의 selectPlayList 메서드 실행됨.");//확인용
+		System.out.println("해당 플레이 리스트를 요청한 아이디 : " + request.getSession().getAttribute("login") );
+		
 	}
 ////////////////////////////////////////////////////////////
 	//경용
