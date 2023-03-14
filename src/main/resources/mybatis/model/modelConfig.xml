@@ -4,10 +4,17 @@
 	"http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
 	<typeAliases>
+		<!-- 다영 -->
 		<typeAlias type="com.java.food.dto.CommentDTO" alias="commentDTO" />
-	</typeAliases>
-	
-	<typeAliases>
+		
+		<!-- 귀범 -->
 		<typeAlias type="com.java.food.dto.FamousChartDTO" alias="chartDTO"/>
+		
+		<!-- 범주 -->
+		
+		<!-- 용준 -->
+		
+		<!-- 경용 -->
 	</typeAliases>
 </configuration>
+
