@@ -22,9 +22,11 @@ public class JavafoodController {
 		//범주
 	}
 ////////////////////////////////////////////////////////////
+	//경용
 	@RequestMapping (value = "/login/mypage", method = RequestMethod.GET)
-	public void java4() {
-		//경용
+	public String java4() {
+		System.out.println("ddd");
+		return "lky/login";
 	}
 ////////////////////////////////////////////////////////////
 	@RequestMapping (value = "/genre", method = RequestMethod.GET)
