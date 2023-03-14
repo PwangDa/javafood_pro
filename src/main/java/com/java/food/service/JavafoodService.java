@@ -1,5 +1,7 @@
 package com.java.food.service;
 
+import java.util.List;
+
 import org.springframework.stereotype.Service;
 
 @Service
@@ -15,7 +17,7 @@ public interface JavafoodService {
 
 ////////////////////////////////////////////////////////////
 //경용
-
+	List list();
 ////////////////////////////////////////////////////////////
 //용준
 
