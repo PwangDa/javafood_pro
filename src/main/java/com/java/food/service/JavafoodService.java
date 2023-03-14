@@ -5,12 +5,8 @@ import java.util.Map;
 
 import org.springframework.stereotype.Service;
 
-<<<<<<< HEAD
-import com.java.food.dto.login_DTO;
-import com.java.food.dto.playListDTO;
-=======
 import com.java.food.dto.PlayListDTO;
->>>>>>> acfe032095a82c2481308922d241d7fd304ca6f5
+import com.java.food.dto.login_DTO;
 
 @Service
 public interface JavafoodService {

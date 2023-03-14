@@ -1,9 +1,5 @@
 package com.java.food.dao;
 
-<<<<<<< HEAD
-import java.sql.SQLException;
-=======
->>>>>>> acfe032095a82c2481308922d241d7fd304ca6f5
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -17,12 +13,8 @@ import org.springframework.stereotype.Repository;
 
 import com.java.food.dto.FamousChartDTO;
 import com.java.food.dto.GenreDTO;
-<<<<<<< HEAD
-import com.java.food.dto.login_DTO;
-import com.java.food.dto.playListDTO;
-=======
 import com.java.food.dto.PlayListDTO;
->>>>>>> acfe032095a82c2481308922d241d7fd304ca6f5
+import com.java.food.dto.login_DTO;
 
 @Repository
 public class JavafoodDAOImpl implements JavafoodDAO {

@@ -8,12 +8,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.java.food.dao.JavafoodDAO;
-<<<<<<< HEAD
-import com.java.food.dto.login_DTO;
-=======
-import com.java.food.dto.PlayListDTO;
 import com.java.food.dto.FamousChartDTO;
->>>>>>> acfe032095a82c2481308922d241d7fd304ca6f5
+import com.java.food.dto.PlayListDTO;
+import com.java.food.dto.login_DTO;
 
 @Service
 public class JavafoodServiceImpl implements JavafoodService {
