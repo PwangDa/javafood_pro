@@ -6,6 +6,7 @@
 	<typeAliases>
 		<!-- 다영 -->
 		<typeAlias type="com.java.food.dto.CommentDTO" alias="commentDTO" />
+		<typeAlias type="com.java.food.dto.AlbumDTO" alias="albumDTO" />
 		
 		<!-- 귀범 -->
 		<typeAlias type="com.java.food.dto.FamousChartDTO" alias="chartDTO"/>
@@ -16,6 +17,7 @@
 		<typeAlias type="com.java.food.dto.GenreDTO" alias="genreDTO" />
 		
 		<!-- 경용 -->
+		<typeAlias type="com.java.food.dto.login_DTO" alias="genreDTO" />
 	</typeAliases>
 </configuration>
 

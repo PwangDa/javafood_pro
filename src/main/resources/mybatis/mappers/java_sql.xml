@@ -4,8 +4,19 @@
 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="mapper.javafood">
 
-	<select id="viewcomment" resultType="commentDTO">
-		SELECT * FROM comment_com
+	<select id="viewComment" resultType="commentDTO" parameterType="String">
+		SELECT LEVEL, articleNO, parentNO, comment_num, comment_id, comment_cont, comment_date, myimg
+		from comment_com
+		WHERE artistname= #{artistname}
+		START WITH parentNO=0
+		CONNECT BY PRIOR articleNO=parentNO
+		ORDER SIBLINGS BY articleNO DESC
+	</select>
+	
+	<select id="viewArtist" resultType="albumDTO" parameterType="String">
+		SELECT * FROM ALBUM a
+		LEFT JOIN INTOALBUM i ON (a.ALBUM_NAME = i.ALBUM_NAME)
+		WHERE i.MUSIC_NUM = 1 AND ARTISTNAME = #{artistname}
 	</select>
 	
 	<select id="viewcomment1" resultType="commentDTO">
