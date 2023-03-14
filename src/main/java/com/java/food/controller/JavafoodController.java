@@ -140,7 +140,8 @@ public class JavafoodController {
 			@RequestParam(value = "pn2",required = false) String pn2,
 			@RequestParam(value = "phone1",required = false) String phone1,
 			@RequestParam(value = "phone2",required = false) String phone2,
-			@RequestParam(value = "phone3",required = false) String phone3
+			@RequestParam(value = "phone3",required = false) String phone3,
+			@RequestParam(value = "page",required = false) String page
 			 ){
 		if(Id1!=null) {
 			login_DTO dto = new login_DTO();
@@ -153,11 +154,9 @@ public class JavafoodController {
 			dto.setPhone(phone1+"-"+phone2+"-"+phone3);
 			mo.addAttribute(javaService.addid(dto));
 		}
-		mo.addAttribute(javaService.urselist());
-		return "lky/login";
-	}
-	@RequestMapping (value = "/login", method = RequestMethod.GET)
-	public String login(Model mo) {
+		if(page!=null) {
+			mo.addAttribute("membership",page);
+		}
 		mo.addAttribute(javaService.urselist());
 		return "lky/login";
 	}
