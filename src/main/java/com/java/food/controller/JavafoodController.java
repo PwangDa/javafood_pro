@@ -17,7 +17,7 @@ public class JavafoodController {
 		//귀범
 	}
 ////////////////////////////////////////////////////////////
-	@RequestMapping
+	@RequestMapping("playList")
 	public void java3() {
 		//범주
 	}
