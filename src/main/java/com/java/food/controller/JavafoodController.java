@@ -7,9 +7,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 public class JavafoodController {
 ////////////////////////////////////////////////////////////
+	//다영
 	@RequestMapping(value = "/artist")
-	public void java1() {
-		//다영
+	public String java1() {
+		System.out.println("아티스트페이지 접속");
+		return "hdy/artist";
 	}
 ////////////////////////////////////////////////////////////
 	@RequestMapping(value = "chart", method = RequestMethod.GET)
@@ -23,9 +25,11 @@ public class JavafoodController {
 		//범주
 	}
 ////////////////////////////////////////////////////////////
+	//경용
 	@RequestMapping (value = "/login/mypage", method = RequestMethod.GET)
-	public void java4() {
-		//경용
+	public String java4() {
+		System.out.println("ddd");
+		return "lky/login";
 	}
 ////////////////////////////////////////////////////////////
 	@RequestMapping (value = "/genre", method = RequestMethod.GET)

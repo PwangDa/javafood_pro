@@ -14,7 +14,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Album TTTest</title>
-<script link src ="javafoodScript/albumScript.js"></script>
+<script link src ="/music/resources/script/albumScript.js"></script>
 <style>       
         <c:forEach var="album" items="${album_title}" varStatus="loop"> 
         	.cont2_${loop.count}:hover span{
@@ -26,7 +26,7 @@
         	}       
         </c:forEach>
 </style>
-<link rel="stylesheet" href="javafoodCSS/albumCSS.css?css=css">
+<link rel="stylesheet" href="/music/resources/style/albumCSS.css?css=css">
 </head>
 <body>
    <%-- <jsp:include page="menu.jsp"></jsp:include> --%>

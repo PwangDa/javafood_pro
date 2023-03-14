@@ -30,7 +30,7 @@
  } 
  
  </script>
- <script link src ="javafoodScript/artistScript.js"></script>
+ <script link src ="/music/resources/script/artistScript.js"></script>
  <style>
   	    #cont{
             background-image:
@@ -50,7 +50,7 @@
             position: relative;
         }
    </style>
-   <link rel="stylesheet" href="javafoodCSS/artistCSS.css">
+   <link rel="stylesheet" href="/music/resources/style/artistCSS.css">
 </head>
 <body  onscroll="headerbarToggle()">
 	<%-- <jsp:include page="menu.jsp"></jsp:include> --%>
