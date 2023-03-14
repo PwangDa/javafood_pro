@@ -47,13 +47,13 @@
         function headerbarToggle(){
             console.log(1234);
         /*메뉴상단 스크롤 함수*/
-            var headerbar = document.getElementById("menu");
+            /*var headerbar = document.getElementById("menu");
             var currentScrollPos = window.pageYOffset;
             if(prevScrollpos < currentScrollPos){
                 headerbar.style.opacity = 1;
             }else{
                 headerbar.style.opacity = 0.6;
-            }
+            }*/
             
             /*앨범 < > 함수*/
             let prev = document.querySelector(".prev");

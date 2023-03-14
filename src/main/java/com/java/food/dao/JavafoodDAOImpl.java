@@ -1,6 +1,9 @@
 package com.java.food.dao;
 
+<<<<<<< HEAD
 import java.sql.SQLException;
+=======
+>>>>>>> acfe032095a82c2481308922d241d7fd304ca6f5
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -14,8 +17,12 @@ import org.springframework.stereotype.Repository;
 
 import com.java.food.dto.FamousChartDTO;
 import com.java.food.dto.GenreDTO;
+<<<<<<< HEAD
 import com.java.food.dto.login_DTO;
 import com.java.food.dto.playListDTO;
+=======
+import com.java.food.dto.PlayListDTO;
+>>>>>>> acfe032095a82c2481308922d241d7fd304ca6f5
 
 @Repository
 public class JavafoodDAOImpl implements JavafoodDAO {
@@ -61,26 +68,36 @@ SqlSession sqlSession;
 
 ////////////////////////////////////////////////////////////
 //귀범
-public List<FamousChartDTO> selectChart(String fc, int start, int end) {
-	List list = sqlSession.selectList("mapper.javafood");
-	
+
+@Override
+public List<FamousChartDTO> selectChart(String songnumber) {
+	List list = new ArrayList();
+	list = sqlSession.selectList("mapper.javafood.selectChart", songnumber);
 	logger.info("list.size : "+ list.size());
 	return list;
 }
 
-public int totalpaging() {
-    List<FamousChartDTO> list = new ArrayList<FamousChartDTO>();
-    int totalcount = 0;
-    
-    return totalcount;
+public Map selectPaging(String fc, int start, int end) {
+	
+	Map map = new HashMap();
+	map.put("start", start);
+	map.put("end", end);
+	return null;
+	
 }
 ////////////////////////////////////////////////////////////
 //범주
 @Override
-public List<playListDTO> selectPlayList(String id)
+public List<PlayListDTO> selectPlayList(String id)
 {
-	List<playListDTO> result = null;
+	System.out.println("JavafoodDAOImpl의 selectPlayList 메서드 실행됨."); //확인용
 	
+	List<PlayListDTO> result = null;
+	
+	//sql을 이용하여 DB에 접속 후 플레이 리스트 가져오기
+	//가져온 리스트를 필드에 담기
+	result = sqlSession.selectList("mapper.javafood.selectPlayList", id);
+	System.out.println("sqlSession을 이용하여 가져온 리스트의 크기는 : " + result.size() ); //확인용
 	
 	return result;
 }
@@ -125,6 +142,9 @@ public int addId(login_DTO vo) {
 	
 		return 0;
 	}
+
+	
+
 
 ////////////////////////////////////////////////////////////
 

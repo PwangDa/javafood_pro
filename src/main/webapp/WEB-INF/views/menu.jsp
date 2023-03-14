@@ -7,7 +7,7 @@
 <meta charset="UTF-8">
 <title>javafood menu</title>
 
-<link rel="stylesheet" href="javafoodCSS/menuCSS.css?css=css">
+<link rel="stylesheet" href="/music/resources/style/menuCSS.css?css=css">
 <script src="https://code.jquery.com/jquery-3.6.3.js"></script>
 
 </head>
@@ -54,5 +54,5 @@
 	
 
 </body>
-<script link src ="javafoodScript/menuScript.js"></script>
+<script link src ="/music/resources/script/menuScript.js"></script>
 </html>

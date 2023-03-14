@@ -8,7 +8,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.java.food.dao.JavafoodDAO;
+<<<<<<< HEAD
 import com.java.food.dto.login_DTO;
+=======
+import com.java.food.dto.PlayListDTO;
+import com.java.food.dto.FamousChartDTO;
+>>>>>>> acfe032095a82c2481308922d241d7fd304ca6f5
 
 @Service
 public class JavafoodServiceImpl implements JavafoodService {
@@ -44,34 +49,47 @@ public class JavafoodServiceImpl implements JavafoodService {
 	}
 ////////////////////////////////////////////////////////////
 //귀범
+	// 차트
 	@Override
-	public List getChart(String fam, int pageNum, int countPerPage) {
+	public List getChart(){
 		
+		String songnumber = null;
+		
+		List<FamousChartDTO> chartlist = javaDAO.selectChart(songnumber);
+		
+		return chartlist;
+		
+		
+	}
+	
+	// 페이징
+	public Map getChart2(String fc, int pageNum, int countPerPage) {
 		
 		int start = 0;
 		int end = 0;
 		start = (countPerPage * (pageNum - 1)) + 1;
 		end = start + countPerPage - 1;
-		
-		
-		List list = null;
-		
-		Map map = new HashMap();
+		List list = javaDAO.getGenre(fc, start, end);
+		int totalCount = javaDAO.pagetotal();
 
-		
-		list = javaDAO.selectChart(fam, start, end);
-		
-		return javaDAO.selectChart(fam, start, end);
+		Map map = new HashMap();
+		map.put("list", list);
+		map.put("totalCount", totalCount);
+		return map;
 		
 	}
 ////////////////////////////////////////////////////////////
 //범주
 	@Override
-	public List selectPlayList(String id)
+	public List<PlayListDTO> selectPlayList(String id)
 	{
-		List result = null;
+		System.out.println("JavafoodServicelImpl의 selectPlayList 메서드 실행됨."); //확인용
+		List<PlayListDTO> result = null;
 		
-//		result = javaDAO.selectPlayList(id);
+		//JavafoodDAO의 selectPlayList 메서드를 실행하기
+		//메서드의 결과(List)를 필드에 담기
+		result = javaDAO.selectPlayList(id);
+		System.out.println("javaDAO의 selectPlayList를 실행하여 얻은 리스트의 크기 : " + result.size() ); //확인용
 		
 		return result;
 	}

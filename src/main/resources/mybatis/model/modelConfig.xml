@@ -16,6 +16,7 @@
 		<typeAlias type="com.java.food.dto.FamousChartDTO" alias="chartDTO"/>
 		
 		<!-- 범주 -->
+		<typeAlias type="com.java.food.dto.PlayListDTO" alias="playListDTO" />
 		
 		<!-- 용준 -->
 		<typeAlias type="com.java.food.dto.GenreDTO" alias="genreDTO" />

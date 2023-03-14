@@ -11,20 +11,6 @@
 <head>
 <meta charset="UTF-8">
 <title>Artist.jsp TTTTest전용</title>
- <script>
- function fn_sendComment(){
- 	
- 	var frmCommand = document.frmComment;
- 	var id = frmCommand.id.value;
- 	var cont = frmCommand.cont.value;
- 	if(id.length == 0 || id == ""){
- 		alert("아이디를 입력해주세요")
- 	}else if(cont.length == 0 || cont == ""){
- 		alert("내용을 입력해주세요")
- 	}
- } 
- 
- </script>
  <script link src ="/music/resources/script/artistScript.js"></script>
  <style>
   	    #cont{
@@ -45,9 +31,9 @@
             position: relative;
         }
    </style>
-   <link rel="stylesheet" href="/music/resources/style/artistCSS.css">
+<link rel="stylesheet" href="/music/resources/style/artistCSS.css">
 </head>
-<body  onscroll="headerbarToggle()">
+<body>
 	<%--  <jsp:include page="menu.jsp"></jsp:include> --%>
     <div id = "home">
         <div id = "cont" class = "contain">     
