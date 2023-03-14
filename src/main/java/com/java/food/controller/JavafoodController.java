@@ -1,16 +1,10 @@
 package com.java.food.controller;
 
-
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
-
 import javax.servlet.http.HttpServletRequest;
 
-
 import org.springframework.beans.factory.annotation.Autowired;
-import javax.servlet.http.HttpServletRequest;
-
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -24,10 +18,31 @@ public class JavafoodController {
 	
 	@Autowired
 	JavafoodService javaService;
+
+	@RequestMapping(value = "/dsaa",method = RequestMethod.GET)
+	public String java(
+			
+			
+			@RequestParam(value = "me",required=false) String url
+			) {
+		
+		System.out.println("접속");
+		if(url != null) {
+			if(url.equals("login/mypage")) {
+				ja();
+			}
+			
+		}else {
+			url="menu";
+			
+		}
+		
+		return url;
+	}
 	
 ////////////////////////////////////////////////////////////
 	//다영
-	@RequestMapping(value = "/artist", method = RequestMethod.GET)
+	@RequestMapping(value = "/artistpage", method = RequestMethod.GET)
 	public String java1(Model model,
 			@RequestParam("artist") String artist
 			) {
@@ -56,9 +71,9 @@ public class JavafoodController {
 ////////////////////////////////////////////////////////////
 	//범주
 	@RequestMapping("playList")
-	public String selectPlayList(HttpServletRequest request)
+	public String selectPlayList(HttpServletRequest request, Model model)
 	{
-		String result = "playList/playList"; 
+		String result = "playList/playList"; // /view/playList/playList.jsp로 이동.
 		
 		System.out.println("JavafoodController의 selectPlayList 메서드 실행됨."); //확인용
 		
@@ -69,9 +84,10 @@ public class JavafoodController {
 		//Service에서 플레이 리스트를 불러오는 메서드 실행하기
 		//메서드 실행 결과(리스트)를 리스트에 담기
 		
-		List playList = null;
+//		List playList = javaService.selectPlayList(id);
 				
-	
+//		model.addAttribute("playList", playlist);
+		
 		return result;
 	}
 ////////////////////////////////////////////////////////////
@@ -79,6 +95,10 @@ public class JavafoodController {
 	@RequestMapping (value = "/login/mypage", method = RequestMethod.GET)
 	public String java4() {
 		System.out.println("ddd");
+		return "lky/login";
+	}
+	
+	public String ja() {
 		return "lky/login";
 	}
 ////////////////////////////////////////////////////////////

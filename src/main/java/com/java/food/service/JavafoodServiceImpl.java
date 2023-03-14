@@ -17,7 +17,7 @@ public class JavafoodServiceImpl implements JavafoodService {
 ////////////////////////////////////////////////////////////
 //다영
 	@Override
-	public List getArtist(String artist){
+	public List getArtist(String artist) {
 		List Artist_list = javaDAO.viewArtist(artist);
 		
 		return Artist_list;
@@ -53,7 +53,15 @@ public class JavafoodServiceImpl implements JavafoodService {
 	}
 ////////////////////////////////////////////////////////////
 //범주
-
+	@Override
+	public List selectPlayList(String id)
+	{
+		List result = null;
+		
+//		result = javaDAO.selectPlayList(id);
+		
+		return result;
+	}
 ////////////////////////////////////////////////////////////
 //경용
 	@Override
