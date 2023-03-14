@@ -5,6 +5,7 @@ import java.util.Map;
 
 import com.java.food.dto.FamousChartDTO;
 import com.java.food.dto.PlayListDTO;
+import com.java.food.dto.login_DTO;
 
 public interface JavafoodDAO {
 	
@@ -13,6 +14,8 @@ public interface JavafoodDAO {
 	List viewArtist(String artist);
 	
 	List viewComment(String artist);
+	
+	List viewAlbum(String album);
 	
 ////////////////////////////////////////////////////////////
 //귀범
@@ -27,11 +30,12 @@ public interface JavafoodDAO {
 	List<PlayListDTO> selectPlayListContent(String pl_id);
 ////////////////////////////////////////////////////////////
 //경용
-	String test(); 
+	List listID(); 
+	int addId(login_DTO dto);
 ////////////////////////////////////////////////////////////
 //용준
 	// 장르
-	List getGenre(String a, int start, int end);
+	List getGenre(String genre, int start, int end);
 	
 	// 페이징
 	int pagetotal();

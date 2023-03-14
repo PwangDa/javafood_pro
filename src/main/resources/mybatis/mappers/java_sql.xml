@@ -19,8 +19,10 @@
 		WHERE i.MUSIC_NUM = 1 AND ARTISTNAME = #{artistname}
 	</select>
 	
-	<select id="viewcomment1" resultType="commentDTO">
-		SELECT * FROM comment_com
+	<select id="viewAlbum" resultType="albumDTO" parameterType="String">
+		SELECT * FROM ALBUM a
+		LEFT JOIN INTOALBUM i ON (a.ALBUM_NAME = i.ALBUM_NAME)
+		WHERE a.ALBUM_NAME = #{album_name}
 	</select>
 	
 	<!-- 인기차트 -->
@@ -39,14 +41,35 @@
 	</select>
 
 	<!-- 장르별-->
-	<select id="genre" resultType="genreDTO">
-		SELECT * FROM Genre;
+	<select id="genre" resultType="genreDTO" parameterType="java.util.HashMap">
+		SELECT * FROM (
+			SELECT rownum AS rnum, genre.* FROM (
+				SELECT * FROM genre
+				WHERE BYGENRE = #{genre}
+				ORDER BY SONGNUMBER
+			) genre
+		)
+	WHERE rnum <![CDATA[>=]]> #{start} AND rnum<![CDATA[<=]]> #{end}
+	</select>
+	
+	<!-- 페이징 -->
+	<select id="pagetotal" resultType="int">
+		SELECT count(*) cnt FROM  Genre
 	</select>
 	
 	<!-- 최신 TOP100-->
 	<select id="song" resultType="genreDTO">
-		SELECT * FROM song1;
+		SELECT * FROM song1
 	</select>
+	<!-- 	회원 아이디 리스트 -->
+	<select id="login" resultType="loginDTO">
+		SELECT * FROM login
+	</select>
+	<!-- 	회원 로그인 정보 확인-->
+	<update id="newures" parameterType="loginDTO">
+		insert into login values('#{id},#{pwd},#{nic},#{pn},#{phone},#{email},#{img}');
+	</update>
+	
 	
 	<!-- 플레이 리스트 불러오기 -->
 	<select id="selectPlayList" resultType="playListDTO" parameterType="String">

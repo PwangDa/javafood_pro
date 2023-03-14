@@ -1,7 +1,9 @@
 package com.java.food.controller;
 
 import java.util.List;
+import java.util.Map;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,7 +13,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.java.food.dto.FamousChartDTO;
 import com.java.food.dto.PlayListDTO;
+import com.java.food.dto.login_DTO;
 import com.java.food.service.JavafoodService;
 
 @Controller
@@ -38,17 +42,68 @@ public class JavafoodController {
 		
 		return "hdy/artist";
 	}
+	
+	@RequestMapping(value = "/albumpage", method = RequestMethod.GET)
+	public String java1_1(Model model,
+			@RequestParam("album") String album
+			) {
+		System.out.println("앨범페이지 접속");
+		System.out.println("album >>" + album);
+		//아티스트 소개 페이지 출력 메소드(전달요소 > 아티스트명)
+		List album_list = javaService.getAlbum(album);
+		//댓글 출력 메소드(전달요소 > 아티스트명)
+		
+		model.addAttribute("album_list", album_list);
+		
+		return "hdy/Album";
+	}
 ////////////////////////////////////////////////////////////
 	//귀범
 	@RequestMapping(value = "/chart", method = RequestMethod.GET)
-	public String java2(Model model, @RequestParam("songnumber") Integer songnumber) {
-		List chart = javaService.getChart();
+	public String java2(Model ch, 
+			@RequestParam(value= "songnumber", required = false) String songnumber,
+			@RequestParam(value= "artistname", required = false) String artistname,
+			@RequestParam(value= "songname", required = false) String songname,
+			@RequestParam(value= "bygenre", required = false) String bygenre,
+			@RequestParam(value= "hits", required = false) String hits,
+			@RequestParam(value= "likes", required = false) String likes,
+			@RequestParam(value= "link", required = false) String link,
+			@RequestParam(value= "famous", required = false) String famous,
+			@RequestParam(value= "record", required = false) String record,
+			@RequestParam(value= "playtime", required = false) String playtime,
+			@RequestParam(value= "ranking", required = false) String ranking,
+			@RequestParam(value= "album", required = false) String album,
+			@RequestParam(value= "imglink", required = false) String imglink,
+			@RequestParam(value= "country", required = false) String country,
+			@RequestParam(value= "album_name", required = false) String album_name,
+			@RequestParam(value= "album_add", required = false) String album_add,
+			@RequestParam(value= "artist_add", required = false) String artist_add
+			) {
+			if(songnumber != null) {
+				FamousChartDTO dto = new FamousChartDTO();
+				dto.setSongnumber(songnumber);
+				dto.setArtistname(artistname);
+				dto.setSongname(songname);
+				dto.setBygenre(bygenre);
+				dto.setHits(hits);
+				dto.setLikes(likes);
+				dto.setLink(link);
+				dto.setFamous(famous);
+				dto.setRecord(record);
+				dto.setPlaytime(playtime);
+				dto.setRanking(ranking);
+				dto.setAlbum(album);
+				dto.setImglink(imglink);
+				dto.setCountry(country);
+				dto.setAlbum_name(album_name);
+				dto.setAlbum_add(album_add);
+				dto.setArtist_add(artist_add);	
+			}
+			ch.addAttribute(javaService.getChart());
 		
-		model.addAttribute("chart", chart);
 		
 		return "chart/chart";
-		
-		
+
 	}
 ////////////////////////////////////////////////////////////
 	//범주
@@ -98,17 +153,68 @@ public class JavafoodController {
 	}
 ////////////////////////////////////////////////////////////
 	//경용
-	@RequestMapping (value = "/login/mypage", method = RequestMethod.GET)
-	public String java4() {
-		System.out.println("ddd");
+	@RequestMapping (value = "/login", method = RequestMethod.GET)
+	public String loginpage(Model mo,
+			@RequestParam(value = "Id1",required = false) String Id1,
+			@RequestParam(value = "PW1",required = false) String PW1,
+			@RequestParam(value = "name",required = false) String name,
+			@RequestParam(value = "nic",required = false) String nic,
+			@RequestParam(value = "mail",required = false) String mail,
+			@RequestParam(value = "pn1",required = false) String pn1,
+			@RequestParam(value = "pn2",required = false) String pn2,
+			@RequestParam(value = "phone1",required = false) String phone1,
+			@RequestParam(value = "phone2",required = false) String phone2,
+			@RequestParam(value = "phone3",required = false) String phone3,
+			@RequestParam(value = "page",required = false) String page
+			 ){
+		if(Id1!=null) {
+			login_DTO dto = new login_DTO();
+			dto.setId(Id1);
+			dto.setPw(PW1);
+			dto.setNic(nic);
+			dto.setName(name);
+			dto.setId(mail);
+			dto.setPn(pn1+"-"+pn2);
+			dto.setPhone(phone1+"-"+phone2+"-"+phone3);
+			mo.addAttribute(javaService.addid(dto));
+		}
+		if(page!=null) {
+			mo.addAttribute("membership",page);
+		}
+		mo.addAttribute(javaService.urselist());
 		return "lky/login";
 	}
 ////////////////////////////////////////////////////////////
 	//용준
 	@RequestMapping (value = "/genre", method = RequestMethod.GET)
-	public String java5() {
-		
-		return "lyj/Genre";
+	public String java5(Model model,
+			HttpServletRequest request) {
+		// 페이징
+				int pageNum = 1;		// 현재 페이지
+				int countPerPage = 10;	// 한 페이지당 표시 수 
+
+				// 장르별 리스트
+				String song="발라드";
+				if(request.getParameter("genre")!=null) {
+					song = request.getParameter("genre");
+				}
+				// 페이징 
+				String tmp_pageNum = request.getParameter("pageNum");
+				if(tmp_pageNum != null) {
+					pageNum = Integer.parseInt(tmp_pageNum);
+				}
+				System.out.println("song  전: " + song);
+				System.out.println("pageNum : " + pageNum);
+				System.out.println("countPerPage : " + countPerPage);
+				Map genre_list = javaService.getGenre(song, pageNum, countPerPage);
+				model.addAttribute("genre", genre_list.get("list"));
+				model.addAttribute("totalCount", genre_list.get("totalCount"));
+				model.addAttribute("pageNum", pageNum);
+				model.addAttribute("countPerPage", countPerPage);
+				model.addAttribute("song", song);
+				System.out.println("song 후: " + song);
+				
+		return "lyj/genre";
 	}
 ////////////////////////////////////////////////////////////
 }
