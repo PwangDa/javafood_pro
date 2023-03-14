@@ -1,7 +1,11 @@
 package com.java.food.dao;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 import org.slf4j.Logger;
@@ -9,6 +13,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.java.food.dto.FamousChartDTO;
 import com.java.food.dto.GenreDTO;
 import com.java.food.dto.playListDTO;
 
@@ -33,7 +38,7 @@ SqlSession sqlSession;
 			logger.info("JavafoodDAOImpl > viewArtist 실행");
 			List list = new ArrayList();
 			list = sqlSession.selectList("mapper.javafood.viewArtist", artist);
-			logger.info("list.size >>>"+list.size()); 
+			logger.info("Artist list.size >>>"+list.size()); 
 			
 			return list;
 		}
@@ -46,21 +51,28 @@ SqlSession sqlSession;
 		 */
 		@Override
 		public List viewComment(String artist) {
-			logger.info("JavafoodDAOImpl > viewArtist 실행");
+			logger.info("JavafoodDAOImpl > viewComment 실행");
 			List list = new ArrayList();
 			list = sqlSession.selectList("mapper.javafood.viewComment", artist);
-			logger.info("list.size >>>"+list.size()); 
+			logger.info("Comment list.size >>>"+list.size()); 
 			
 			return list;
 		}
 
 ////////////////////////////////////////////////////////////
 //귀범
-public List selectChart() {
+public List<FamousChartDTO> selectChart(String fc, int start, int end) {
 	List list = sqlSession.selectList("mapper.javafood");
 	
 	logger.info("list.size : "+ list.size());
 	return list;
+}
+
+public int totalpaging() {
+    List<FamousChartDTO> list = new ArrayList<FamousChartDTO>();
+    int totalcount = 0;
+    
+    return totalcount;
 }
 ////////////////////////////////////////////////////////////
 //범주
@@ -82,6 +94,9 @@ public List<playListDTO> selectPlayList(String id)
 	// 장르별
 	public List<GenreDTO> getGenre(String a, int start, int end) {
 		
+		Map map = new HashMap();
+		map.put("start", start);
+		map.put("end", end);
 		return null;
 	}
 	

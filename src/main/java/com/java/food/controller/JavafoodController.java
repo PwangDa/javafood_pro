@@ -27,7 +27,9 @@ public class JavafoodController {
 			) {
 		System.out.println("아티스트페이지 접속");
 		System.out.println("artist >" + artist);
+		//아티스트 소개 페이지 출력 메소드(전달요소 > 아티스트명)
 		List artist_list = javaService.getArtist(artist);
+		//댓글 출력 메소드(전달요소 > 아티스트명)
 		List comment_list = javaService.getComment(artist);
 		
 		model.addAttribute("album_list", artist_list);
@@ -36,9 +38,16 @@ public class JavafoodController {
 		return "hdy/artist";
 	}
 ////////////////////////////////////////////////////////////
+	//귀범
 	@RequestMapping(value = "/chart", method = RequestMethod.GET)
-	public void java2() {
-		//귀범
+	public String java2(Model model, @RequestParam("songnumber") Integer songnumber) {
+		List chart = javaService.getChart();
+		
+		model.addAttribute("chart", chart);
+		
+		return "chart/chart";
+		
+		
 	}
 ////////////////////////////////////////////////////////////
 	//범주

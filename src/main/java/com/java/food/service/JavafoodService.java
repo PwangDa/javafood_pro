@@ -15,7 +15,7 @@ public interface JavafoodService {
 	List getComment(String artist);
 ////////////////////////////////////////////////////////////
 //귀범
-	List getChart();
+	List getChart(String fam, int pageNum, int countPerPage);
 ////////////////////////////////////////////////////////////
 //범주
 	List<playListDTO> selectPlayList(String id);
@@ -28,4 +28,5 @@ public interface JavafoodService {
 	Map getGenre(String song, int pageNum, int countPerPage);
 	
 ////////////////////////////////////////////////////////////
+	
 }
