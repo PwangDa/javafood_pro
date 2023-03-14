@@ -1,13 +1,13 @@
 package com.java.food.controller;
 
-<<<<<<< HEAD
+
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-=======
+
 import javax.servlet.http.HttpServletRequest;
 
->>>>>>> e903918efcff7b779c60eb9a7ea3ed7af62b5c29
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
