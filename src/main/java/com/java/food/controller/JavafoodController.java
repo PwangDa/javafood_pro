@@ -27,7 +27,7 @@ public class JavafoodController {
 	
 ////////////////////////////////////////////////////////////
 	//다영
-	@RequestMapping(value = "/artist", method = RequestMethod.GET)
+	@RequestMapping(value = "/artistpage", method = RequestMethod.GET)
 	public String java1(Model model,
 			@RequestParam("artist") String artist
 			) {
