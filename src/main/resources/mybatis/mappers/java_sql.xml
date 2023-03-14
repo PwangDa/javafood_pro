@@ -12,5 +12,7 @@
 		SELECT * FROM comment_com
 	</select>
 
-
+	<select id="chart" resultType="chartDTO">
+		SELECT * FROM Genre;
+	</select>
 </mapper>
