@@ -16,12 +16,24 @@ public class JavafoodServiceImpl implements JavafoodService {
 	JavafoodDAO javaDAO;
 ////////////////////////////////////////////////////////////
 //다영
+	/**
+	 * 다영
+	 * 아티스트 페이지 출력 메소드
+	 * 전달인자 : String (아티스트 이름)
+	 * @return : list
+	 */
 	@Override
 	public List getArtist(String artist) {
 		List Artist_list = javaDAO.viewArtist(artist);
 		
 		return Artist_list;
 	}
+	/**
+	 * 다영
+	 * 댓글 출력 메소드
+	 * 전달인자 : String (아티스트 이름)
+	 * @return : list
+	 */
 	@Override
 	public List getComment(String artist) {
 		List Comment_list = javaDAO.viewComment(artist);

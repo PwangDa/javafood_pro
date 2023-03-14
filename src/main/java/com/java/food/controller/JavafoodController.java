@@ -48,7 +48,9 @@ public class JavafoodController {
 			) {
 		System.out.println("아티스트페이지 접속");
 		System.out.println("artist >" + artist);
+		//아티스트 소개 페이지 출력 메소드(전달요소 > 아티스트명)
 		List artist_list = javaService.getArtist(artist);
+		//댓글 출력 메소드(전달요소 > 아티스트명)
 		List comment_list = javaService.getComment(artist);
 		
 		model.addAttribute("album_list", artist_list);

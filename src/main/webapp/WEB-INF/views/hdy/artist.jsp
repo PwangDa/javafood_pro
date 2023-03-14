@@ -1,10 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"
-    import = "com.java.food.dao.JavafoodDAO"
-    import = "comment.CommentVO"
-    import = "comment.CommentServlet"
-    import = "album.info.AlbumDAO"
-    import = "album.info.AlbumVO"
     import = "java.sql.Date"
     import = "java.util.List"
     %>
