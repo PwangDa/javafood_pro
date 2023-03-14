@@ -1,5 +1,7 @@
 package com.java.food.service;
 
+import java.util.List;
+
 public class JavafoodServiceImpl implements JavafoodService {
 ////////////////////////////////////////////////////////////
 //다영
@@ -12,7 +14,10 @@ public class JavafoodServiceImpl implements JavafoodService {
 
 ////////////////////////////////////////////////////////////
 //경용
-
+	@Override
+	public List list(){
+		return null;
+	}
 ////////////////////////////////////////////////////////////
 //용준
 
