@@ -1,4 +1,4 @@
-package src.main.java.com.java.food.dto;
+package com.java.food.dto;
 
 public class playListDTO
 {
