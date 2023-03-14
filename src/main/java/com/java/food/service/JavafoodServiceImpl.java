@@ -14,7 +14,12 @@ public class JavafoodServiceImpl implements JavafoodService {
 	JavafoodDAO javaDAO;
 ////////////////////////////////////////////////////////////
 //다영
-
+	@Override
+	public List getArtist(String artist){
+		List Artist_list = javaDAO.viewArtist(artist);
+		
+		return Artist_list;
+	}
 ////////////////////////////////////////////////////////////
 //귀범
 	@Override
