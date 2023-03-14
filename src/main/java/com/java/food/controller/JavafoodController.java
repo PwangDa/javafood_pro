@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.java.food.dto.PlayListDTO;
 import com.java.food.service.JavafoodService;
 
 @Controller
@@ -71,15 +72,17 @@ public class JavafoodController {
 		System.out.println("JavafoodController의 selectPlayList 메서드 실행됨."); //확인용
 		
 		//세션에 저장된 id값 받아오기
-		String id = (String)request.getSession().getAttribute("login");
+//		String id = (String)request.getSession().getAttribute("login");
+		String id = "testAdmin"; //테스트 용 아이디.
 		System.out.println("해당 플레이 리스트를 요청한 아이디 : " + id ); //확인용
 		
 		//Service에서 플레이 리스트를 불러오는 메서드 실행하기
-		//메서드 실행 결과(리스트)를 리스트에 담기
-		
-//		List playList = javaService.selectPlayList(id);
+		//메서드 실행 결과(리스트)를 필드에 담기
+		List<PlayListDTO> playList = javaService.selectPlayList(id);
+		System.out.println("JavafoodController의 최종 리스트 크기는 : " + playList.size() );
 				
-//		model.addAttribute("playList", playlist);
+		//리스트를 담은 필드를 모델을 통해서 보내기
+		model.addAttribute("playList", playList);
 		
 		return result;
 	}

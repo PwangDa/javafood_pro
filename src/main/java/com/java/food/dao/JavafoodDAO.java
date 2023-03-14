@@ -2,7 +2,7 @@ package com.java.food.dao;
 
 import java.util.List;
 
-import com.java.food.dto.playListDTO;
+import com.java.food.dto.PlayListDTO;
 
 public interface JavafoodDAO {
 	
@@ -19,7 +19,7 @@ public interface JavafoodDAO {
 	
 ////////////////////////////////////////////////////////////
 //범주
-	List<playListDTO> selectPlayList(String id);
+	List<PlayListDTO> selectPlayList(String id);
 ////////////////////////////////////////////////////////////
 //경용
 	String test(); 

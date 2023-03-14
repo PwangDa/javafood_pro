@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.java.food.dao.JavafoodDAO;
+import com.java.food.dto.PlayListDTO;
 
 @Service
 public class JavafoodServiceImpl implements JavafoodService {
@@ -45,11 +46,15 @@ public class JavafoodServiceImpl implements JavafoodService {
 ////////////////////////////////////////////////////////////
 //범주
 	@Override
-	public List selectPlayList(String id)
+	public List<PlayListDTO> selectPlayList(String id)
 	{
-		List result = null;
+		System.out.println("JavafoodServicelImpl의 selectPlayList 메서드 실행됨."); //확인용
+		List<PlayListDTO> result = null;
 		
-//		result = javaDAO.selectPlayList(id);
+		//JavafoodDAO의 selectPlayList 메서드를 실행하기
+		//메서드의 결과(List)를 필드에 담기
+		result = javaDAO.selectPlayList(id);
+		System.out.println("javaDAO의 selectPlayList를 실행하여 얻은 리스트의 크기 : " + result.size() ); //확인용
 		
 		return result;
 	}

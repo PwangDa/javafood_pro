@@ -5,7 +5,7 @@ import java.util.Map;
 
 import org.springframework.stereotype.Service;
 
-import com.java.food.dto.playListDTO;
+import com.java.food.dto.PlayListDTO;
 
 @Service
 public interface JavafoodService {
@@ -18,7 +18,7 @@ public interface JavafoodService {
 	List getChart();
 ////////////////////////////////////////////////////////////
 //범주
-	List<playListDTO> selectPlayList(String id);
+	List<PlayListDTO> selectPlayList(String id);
 ////////////////////////////////////////////////////////////
 //경용
 	List list();

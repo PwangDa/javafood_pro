@@ -1,9 +1,9 @@
 package com.java.food.dto;
 
-public class playListDTO
+public class PlayListDTO
 {
-	private String listTitle;
-	private String listExplain;
+	private String pl_title;
+	private String pl_explain;
 	private String id;
 	private int pl_id;
 	private String songName;
@@ -19,17 +19,17 @@ public class playListDTO
 	
 	
 	//getter setter
-	public String getListTitle() {
-		return listTitle;
+	public String getpl_title() {
+		return pl_title;
 	}
-	public void setListTitle(String listTitle) {
-		this.listTitle = listTitle;
+	public void setpl_title(String pl_title) {
+		this.pl_title = pl_title;
 	}
-	public String getListExplain() {
-		return listExplain;
+	public String getpl_explain() {
+		return pl_explain;
 	}
-	public void setListExplain(String listExplain) {
-		this.listExplain = listExplain;
+	public void setpl_explain(String pl_explain) {
+		this.pl_explain = pl_explain;
 	}
 	public String getId() {
 		return id;
