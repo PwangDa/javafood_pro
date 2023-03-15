@@ -108,6 +108,21 @@ public List<PlayListDTO> selectPlayList(String id)
 	
 	return result;
 }
+
+@Override
+public List<PlayListDTO> selectPlayListContent(String id)
+{
+	System.out.println("JavafoodDAOImpl의 selectPlayList 메서드 실행됨."); //확인용
+	
+	List<PlayListDTO> result = null;
+	
+	//sql을 이용하여 DB에 접속 후 플레이 리스트 가져오기
+//	//가져온 리스트를 필드에 담기
+//	result = sqlSession.selectList("mapper.javafood.selectPlayList", id);
+//	System.out.println("sqlSession을 이용하여 가져온 리스트의 크기는 : " + result.size() ); //확인용
+	
+	return result;
+}
 ////////////////////////////////////////////////////////////
 //경용
 /**
