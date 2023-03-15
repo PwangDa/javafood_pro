@@ -26,7 +26,7 @@
 	</select>
 	
 	<!-- 인기차트 -->
-	<select id="chart" resultType="chartDTO" parameterType="String">
+	<select id="getChart" resultType="chartDTO" parameterType="String">
 		
 			SELECT * FROM ( 
 				SELECT rownum num, genre.* FROM 
