@@ -95,6 +95,10 @@ public Map selectPaging(String fc, int start, int end) {
 ////////////////////////////////////////////////////////////
 //범주
 @Override
+/**
+ * 플레이 리스트를 List에 담아 return 합니다.
+ * 전달인자 : id(String)
+ */
 public List<PlayListDTO> selectPlayList(String id)
 {
 	System.out.println("JavafoodDAOImpl의 selectPlayList 메서드 실행됨."); //확인용
@@ -110,7 +114,11 @@ public List<PlayListDTO> selectPlayList(String id)
 }
 
 @Override
-public List<PlayListDTO> selectPlayListContent(String id)
+/**
+ * 플레이 리스트의 내역(Content)를 List에 담아 return 합니다.
+ * 전달인자 : 플레이 리스트의 id(String)
+ */
+public List<PlayListDTO> selectPlayListContent(String pl_id)
 {
 	System.out.println("JavafoodDAOImpl의 selectPlayList 메서드 실행됨."); //확인용
 	
@@ -118,8 +126,8 @@ public List<PlayListDTO> selectPlayListContent(String id)
 	
 	//sql을 이용하여 DB에 접속 후 플레이 리스트 가져오기
 //	//가져온 리스트를 필드에 담기
-//	result = sqlSession.selectList("mapper.javafood.selectPlayList", id);
-//	System.out.println("sqlSession을 이용하여 가져온 리스트의 크기는 : " + result.size() ); //확인용
+	result = sqlSession.selectList("mapper.javafood.selectPlayListContent", pl_id);
+	System.out.println("sqlSession을 이용하여 가져온 리스트의 크기는 : " + result.size() ); //확인용
 	
 	return result;
 }
