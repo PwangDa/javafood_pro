@@ -18,8 +18,8 @@ public interface JavafoodService {
 	List getAlbum(String album);
 ////////////////////////////////////////////////////////////
 //귀범
-	List getChart();
-	int Chart(FamousChartDTO dto);
+	List<FamousChartDTO> getChart(String songnumber);
+	Map paging(String songnum, int pageNum, int countPerPage);
 ////////////////////////////////////////////////////////////
 //범주
 	List<PlayListDTO> selectPlayList(String id);
@@ -27,7 +27,7 @@ public interface JavafoodService {
 ////////////////////////////////////////////////////////////
 //경용
 	List urselist();
-	int addid(login_DTO vo);
+	int addid(Map<String, Object> map);
 
 ////////////////////////////////////////////////////////////
 //용준

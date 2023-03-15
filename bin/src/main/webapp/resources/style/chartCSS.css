@@ -1,0 +1,201 @@
+@charset "UTF-8";
+
+ header {
+	top: 0;
+} 
+
+
+body {
+	margin: 0 63px;
+	background-color: black;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.table {
+	border: 1px solid black;
+	
+}
+.table2 {
+	color: white;
+	border: 2px solid white;
+	font-size: 20px;
+}
+
+.table3 {
+	color: white;
+	border: 2px solid white;
+	font-size: 15px;
+}
+
+ td {
+	text-align: center;
+	background-color: black;
+	color: white;
+	border: 1px solid white;
+}
+
+.time {
+	width : 100%;
+	margin : 0px;
+	margin-top : 61px;
+	text-align : right;
+}
+
+.list {
+	margin : 0px;
+	width : 100%;
+}
+.play {
+ 	border-radius: 2px;
+	width : 30px;
+}
+.save {
+	border-radius: 2px;
+	width : 30px;
+}
+.like {
+	border-radius: 2px;
+	width : 20px;
+	background-position:  0px 0px;
+    background-repeat: no-repeat;
+    border: 1px;
+ 	cursor:pointer;
+ 	outline: 0;
+	
+}
+
+#allsave {
+	width: 50px;
+    margin-right: 1213px;
+    margin-bottom: -91px;
+	
+}
+
+.mouse{
+        	width: 30px;
+        	margin-left: 0px;
+        	border-radius: 30%;
+        	
+        }
+.paging{
+           
+            display: block;
+            text-align: center;  
+            margin-top: 40px;          
+        }
+        
+.number{
+            
+            vertical-align: top;
+        }
+.allbtn {
+	-webkit-appearance: none;
+    position: relative;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    outline: none !important;
+    border: 1px solid #eeeeee;
+    border-radius: 2px;
+    background: #000000;
+    text-align: center;
+    margin-left: 0px;
+}
+#selectbtn {
+	-webkit-appearance: none;
+    position: relative;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    outline: none !important;
+    border: 1px solid #eeeeee;
+    border-radius: 2px;
+    background: #000000;
+    text-align: center;
+    margin-left: 0px;
+}
+        
+ a{
+            text-decoration: none;
+            color: white;
+ 	}
+
+	  /*체크박스*/
+        /*.but{
+            display : none;
+            width: 20px;
+            height: 20px;
+            text-align: center;
+            margin-left: 40px;
+        }  */
+        
+       /*체크박스가 체크되면 유지되게. */  
+       /* > 는 자식요소 / ~는 모두다 /+형제에서 다음형제?*/
+        .but:checked + span{
+        	display : none;
+        }
+        .but:checked {
+        	display : block;
+        }
+        
+        
+		/*체크박스 디자인*/
+        input[type="checkbox"]{
+                -webkit-appearance: none;
+                position: relative;
+                width: 20px;
+                height: 20px;
+                cursor: pointer;
+                outline: none !important;
+                border: 1px solid #eeeeee;
+                border-radius: 2px;
+                background: #000000;
+                
+                text-align: center;
+            	margin-left: 0px;
+            	
+            }
+            
+            input[type="checkbox"]::before {
+                content: "\2713";
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                overflow: hidden;
+                transform: scale(0) translate(-50%, -50%);
+                line-height: 1;
+            }
+
+            input[type="checkbox"]:checked {
+                background-color: #adadad;
+                border-color: rgb(255, 255, 255);
+                color: white;
+            } 
+            
+        .tab1{
+            background-color: rgb(42, 42, 42);
+            border-radius: 15px;
+            width: 174px;
+            height: 50px;
+            color : white;
+            font-size: 20px;
+        }
+        .tab1:hover{
+            cursor: pointer;
+            background-color:rgba(173, 173, 173, 0.545);
+        }
+        .tab1:active{
+            transform: scale(1.1);
+        }
+        .tab1_1{
+            border-left: 6px solid rgb(49, 180, 255);
+        }
+        .tab1_2{
+            border-left: 6px solid rgb(255, 79, 141);
+        }
+        .tab1_3{
+            border-left: 6px solid rgb(255, 232, 81);
+        }

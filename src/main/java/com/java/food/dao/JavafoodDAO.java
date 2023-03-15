@@ -20,9 +20,10 @@ public interface JavafoodDAO {
 ////////////////////////////////////////////////////////////
 //귀범
 	// 차트용
-	List<FamousChartDTO> selectChart(String songnumber);
+	List<FamousChartDTO> getChart(String songnumber);
 	// 페이징
-	Map selectPaging(String fc, int start, int end);
+	List paging(String fc, int start, int end);
+	int totalpage();
 	
 ////////////////////////////////////////////////////////////
 //범주

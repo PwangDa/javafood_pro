@@ -60,21 +60,43 @@ public class JavafoodServiceImpl implements JavafoodService {
 ////////////////////////////////////////////////////////////
 //귀범
 	// 차트
+	/**
+	 * 인기차트 출력 메소드
+	 * 전달인자 : String 노래번호
+	 * @return : list
+	 */
 	@Override
-	public List getChart(){
+	public List<FamousChartDTO> getChart(String songnumber){
 		
-		String songnumber = null;
+		List<FamousChartDTO> chartlist = null;
 		
-		List<FamousChartDTO> chartlist = javaDAO.selectChart(songnumber);
+		chartlist = javaDAO.getChart(songnumber);
 		
 		return chartlist;
 		
 		
 	}
 	
-	
-	public int Chart(FamousChartDTO dto) {
-		return javaDAO.chart
+	// 페이징
+	/**
+	 * 페이징 출력 메소드
+	 * 전달인자 : 노래번호, 페이지넘버, 출력개수
+	 * @return : map
+	 */
+	@Override
+	public Map paging(String songnum, int pageNum, int countPerPage) {
+
+		int start = 0;
+		int end = 0;
+		start = (countPerPage * (pageNum - 1)) + 1;
+		end = start + countPerPage - 1;
+		List list = javaDAO.paging(songnum, start, end);
+		int totalCount = javaDAO.totalpage();
+		
+		Map map = new HashMap();
+		map.put("list", list);
+		map.put("totalCount", totalCount);
+		return map;
 		
 	}
 ////////////////////////////////////////////////////////////
@@ -115,8 +137,16 @@ public class JavafoodServiceImpl implements JavafoodService {
 	}
 	//회원가입
 	@Override
-	public int addid(login_DTO vo) {
-		return javaDAO.addId(vo);
+	public int addid (Map<String, Object> map) {
+		login_DTO dto = new login_DTO();
+		dto.setId( (String) map.get("Id1") );
+		dto.setPw( (String) map.get("PW1") );
+		dto.setNic( (String) map.get("nic") );
+		dto.setName( (String) map.get("name") );
+		dto.setEmail( (String) map.get("mail") );
+		dto.setPn( (String) map.get("pn1")+"-"+map.get("pn2") );
+		dto.setPhone( (String) map.get("phone1")+"-"+map.get("phone2")+"-"+map.get("phone3") );
+		return javaDAO.addId(dto);
 	}
 ////////////////////////////////////////////////////////////
 	// 용준 장르별 페이징

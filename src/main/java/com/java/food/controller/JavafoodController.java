@@ -3,7 +3,6 @@ package com.java.food.controller;
 import java.util.List;
 import java.util.Map;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +11,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.java.food.dto.FamousChartDTO;
 import com.java.food.dto.PlayListDTO;
@@ -99,7 +99,7 @@ public class JavafoodController {
 				dto.setAlbum_add(album_add);
 				dto.setArtist_add(artist_add);	
 			}
-			ch.addAttribute(javaService.getChart());
+//			ch.addAttribute(javaService.getChart());
 		
 		
 		return "chart/chart";
@@ -153,36 +153,24 @@ public class JavafoodController {
 	}
 ////////////////////////////////////////////////////////////
 	//경용
-	@RequestMapping (value = "/login", method = RequestMethod.GET)
+	@RequestMapping (value = "/login")
 	public String loginpage(Model mo,
-			@RequestParam(value = "Id1",required = false) String Id1,
-			@RequestParam(value = "PW1",required = false) String PW1,
-			@RequestParam(value = "name",required = false) String name,
-			@RequestParam(value = "nic",required = false) String nic,
-			@RequestParam(value = "mail",required = false) String mail,
-			@RequestParam(value = "pn1",required = false) String pn1,
-			@RequestParam(value = "pn2",required = false) String pn2,
-			@RequestParam(value = "phone1",required = false) String phone1,
-			@RequestParam(value = "phone2",required = false) String phone2,
-			@RequestParam(value = "phone3",required = false) String phone3,
-			@RequestParam(value = "page",required = false) String page
+			@RequestParam Map<String, Object> map
 			 ){
-		if(Id1!=null) {
-			login_DTO dto = new login_DTO();
-			dto.setId(Id1);
-			dto.setPw(PW1);
-			dto.setNic(nic);
-			dto.setName(name);
-			dto.setId(mail);
-			dto.setPn(pn1+"-"+pn2);
-			dto.setPhone(phone1+"-"+phone2+"-"+phone3);
-			mo.addAttribute(javaService.addid(dto));
+		if(map.get("Id1")!=null) {
+			mo.addAttribute(javaService.addid(map));
 		}
-		if(page!=null) {
-			mo.addAttribute("membership",page);
+		if(map.get("membership")!=null) {
+			mo.addAttribute("membership",map.get("membership"));
 		}
-		mo.addAttribute(javaService.urselist());
+		mo.addAttribute("ll",javaService.urselist());
 		return "lky/login";
+	}
+	@ResponseBody
+	@RequestMapping("test")
+	public String gd(login_DTO login_DTO) {
+		
+		return "";
 	}
 ////////////////////////////////////////////////////////////
 	//용준
