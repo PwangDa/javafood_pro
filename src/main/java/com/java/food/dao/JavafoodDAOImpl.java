@@ -11,14 +11,10 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-<<<<<<< HEAD
-import com.java.food.dto.playListDTO;
-=======
 import com.java.food.dto.FamousChartDTO;
 import com.java.food.dto.GenreDTO;
 import com.java.food.dto.PlayListDTO;
 import com.java.food.dto.login_DTO;
->>>>>>> dc64e985d8b4c4be28f3cc59c4a44930d242cefe
 
 @Repository
 public class JavafoodDAOImpl implements JavafoodDAO {
