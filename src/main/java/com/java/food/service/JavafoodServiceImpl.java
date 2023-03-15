@@ -60,23 +60,43 @@ public class JavafoodServiceImpl implements JavafoodService {
 ////////////////////////////////////////////////////////////
 //귀범
 	// 차트
+	/**
+	 * 인기차트 출력 메소드
+	 * 전달인자 : String 노래번호
+	 * @return : list
+	 */
 	@Override
-	public List getChart(){
+	public List<FamousChartDTO> getChart(String songnumber){
 		
-		String songnumber = null;
+		List<FamousChartDTO> chartlist = null;
 		
-		List<FamousChartDTO> chartlist = javaDAO.selectChart(songnumber);
+		chartlist = javaDAO.getChart(songnumber);
 		
 		return chartlist;
 		
 		
 	}
 	
-	
-	public int Chart(FamousChartDTO dto) {
-//		return javaDAO.chart
+	// 페이징
+	/**
+	 * 페이징 출력 메소드
+	 * 전달인자 : 노래번호, 페이지넘버, 출력개수
+	 * @return : map
+	 */
+	@Override
+	public Map paging(String songnum, int pageNum, int countPerPage) {
+
+		int start = 0;
+		int end = 0;
+		start = (countPerPage * (pageNum - 1)) + 1;
+		end = start + countPerPage - 1;
+		List list = javaDAO.paging(songnum, start, end);
+		int totalCount = javaDAO.totalpage();
 		
-		return (Integer) null;
+		Map map = new HashMap();
+		map.put("list", list);
+		map.put("totalCount", totalCount);
+		return map;
 		
 	}
 ////////////////////////////////////////////////////////////

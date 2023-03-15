@@ -99,7 +99,7 @@ public class JavafoodController {
 				dto.setAlbum_add(album_add);
 				dto.setArtist_add(artist_add);	
 			}
-			ch.addAttribute(javaService.getChart());
+//			ch.addAttribute(javaService.getChart());
 		
 		
 		return "chart/chart";
