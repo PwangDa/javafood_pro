@@ -19,6 +19,12 @@
 		WHERE i.MUSIC_NUM = 1 AND ARTISTNAME = #{artistname}
 	</select>
 	
+	<select id="plusArtist" resultType="songPlusDTO" parameterType="String">
+		insert into album
+		(album_num, album_cover, album_name, album_into, artistname, artist_img, artist_info)";
+		values(#{album_num}, #{album_cover}, #{album_name}, #{album_into}, #{artistname}, #{artist_img}, #{artist_info})
+	</select>
+	
 	<select id="viewAlbum" resultType="albumDTO" parameterType="String">
 		SELECT * FROM ALBUM a
 		LEFT JOIN INTOALBUM i ON (a.ALBUM_NAME = i.ALBUM_NAME)
@@ -26,20 +32,25 @@
 	</select>
 	
 	<!-- 인기차트 -->
-	<select id="chart" resultType="chartDTO" parameterType="String">
-		<![CDATA[
+	<select id="getChart" resultType="chartDTO" parameterType="String">
+		
 			SELECT * FROM ( 
 				SELECT rownum num, genre.* FROM 
 					( SELECT RANK() OVER (ORDER BY FAMOUS DESC) 
 						AS RANKING, a.* FROM ( SELECT (HITS *1) + (LIKES * 1.5) 
 							AS FAMOUS, s.*  FROM Genre s ) a ) genre WHERE country =?)
-			WHERE num >=? AND num <=? 
-		]]>
+			WHERE num <![CDATA[>=]]> #{start} AND rnum<![CDATA[<=]]> #{end} 
+
 		<foreach item="not" collection="list" open="(" separator="," close=")">
 			#{not}
 		</foreach>
 	</select>
-
+	
+	<!-- 인기차트 페이징 -->
+	<select id="totalpage" resultType="int">
+		SELECT count(*) cnt FROM  Genre
+	</select>
+	
 	<!-- 장르별-->
 	<select id="genre" resultType="genreDTO" parameterType="java.util.HashMap">
 		SELECT * FROM (
@@ -61,7 +72,7 @@
 	<select id="song" resultType="genreDTO">
 		SELECT * FROM song1
 	</select>
-	<!-- 	회원 아이디 리스트 -->
+	<!-- 	회원 전체 목록 리스트 -->
 	<select id="login" resultType="loginDTO">
 		SELECT * FROM login
 	</select>
@@ -83,12 +94,14 @@
 	
 	<!-- 플레이 리스트 내역(Content) 불러오기 -->
 	<select id="selectPlayListContent" resultType="playListDTO" parameterType="String">
-		SELECT
-			plc.pl_id, plc.listNumber, plc.songName, plc.songNumber, s.Link
+	SELECT
+			plc.pl_id, plc.listNumber, plc.songName, plc.songNumber, g.Link, pl.pl_title, pl.pl_explain, g.imageLink, g.artistName, g.songName
 		FROM
-			playList_Content plc, song1 s
+			playList_Content plc, genre g, playList pl
 		WHERE
-			plc.songNumber = s.songNumber
+			plc.songNumber = g.songNumber
+			AND
+			pl.pl_id = plc.pl_id
 			AND
 			plc.pl_id = #{pl_id}
 	</select>

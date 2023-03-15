@@ -1,0 +1,213 @@
+@charset "UTF-8";
+    body
+    {
+        background-color: black;
+        color:white;
+        margin : 0;
+    }
+
+    div.topArea
+    {
+        display:flex;
+        justify-content: center;
+    }
+
+    a
+    {
+        text-decoration: none; /* 링크의 밑줄 제거 */
+        color: inherit; /* 링크의 색상 제거 */
+    }
+    a.topButton
+    {
+        /* border:1px solid red; */
+        border-radius: 5px;
+
+        text-align: center;
+
+        background-color: rgb(46, 46, 46);
+
+        padding:1% 8%;
+        width:10%;
+        margin:1%;
+        
+        font-size:25px;
+        font-weight:bolder;
+        
+    }
+    a.topButton:hover{
+        background-color: rgba(128, 128, 128, 0.652);
+        cursor: pointer;
+    }
+
+    .subtitle
+    {
+        font-size:25px;
+        font-weight:bolder;
+
+        /* padding-left: 8%;
+        padding-top: 5%; */
+    }
+
+    div.hitList
+    {
+        /* border:1px solid red; */
+
+        margin:0 9%;
+    }
+    div.hitListViewerContent
+    {
+        /* border:1px solid blue; */
+
+        display:flex;
+
+        width:420px;
+
+        margin : 10px 0;
+    }
+    div.hitListViewerContent:hover
+    {
+    	border-radius:5px;
+        background-color: rgba(128, 128, 128, 0.652);
+        cursor: pointer;
+    }
+    div.hitListViewerSongTitle
+    {
+        /* border:1px solid green; */
+
+        height:25px;
+        
+        font-weight:bolder;
+
+        margin-top:5px;
+    }
+    div.hitListViewerSongInfo
+    {
+        /* border:1px solid purple; */
+
+        height:25px;
+        
+        color: gray;
+    }
+    img.thumnail
+    {
+        /* border: 1px solid red; */
+
+        width:60px;
+        height:60px;
+
+        border-radius: 5px;
+
+        margin-right:1%;
+    }
+    div.hitListRank
+    {
+        /* border:1px solid orange; */
+
+        /* display:inline-block; */
+
+        padding-top:20px;
+        margin:0 10px;
+    }
+    div.songContentInfo
+    {
+        display:flex;
+        flex-direction: column;
+    }
+    div.hitListController
+    {
+        /* margin-top : 20px; */
+        text-align: center;
+    }
+    
+   
+
+    .point{
+            border: 1px solid rgb(98, 98, 98);
+            background-color: transparent;
+            border-radius: 70%;
+            width : 30px;
+            height: 31px;
+            margin : 10px;
+            padding: 0px 3px;
+            padding-bottom: 3px;
+            font-size: 20px;
+            display: inline-block;
+            font-weight: 200;
+        }
+
+
+    .point:hover{
+        background-color: rgba(128, 128, 128, 0.652);
+        cursor: pointer;
+    }
+    
+    div.songContent
+    {
+    	font-size:13px;
+    }
+    div.songContentPage0
+    {
+        display:flex;
+        
+        margin : 0 9%;
+
+        overflow:hidden;
+    }
+    div.songContentPage1
+    {
+    	margin : 0 9% 0 -820px;
+    	
+    	display:flex;
+
+        overflow:hidden;
+    }
+    div.songContentPage2
+    {
+    	margin : 0 9% 0 -1640px;
+    	
+    	display:flex;
+
+        overflow:hidden;
+    }
+    div.songContentPage3
+    {
+    	margin : 0 9% 0 -2460px;
+    	
+    	display:flex;
+
+        overflow:hidden;
+    }
+    div.songContentPage4
+    {
+    	margin : 0 9% 0 -3280px;
+    	
+    	display:flex;
+
+        overflow:hidden;
+    }
+/*     검색	테이블 		 */
+    .at{
+		color: rgb(159, 159, 159); 
+		text-decoration: none;
+	}
+	td{
+		width: 100px;
+	}
+	table{
+		background-size: contain; 
+		background-color: black;   
+		text-align: right; 
+		margin: auto; 
+		border: 1px solid black; 
+		border-collapse: collapse;
+	}
+	.sub{
+		margin-top: 10px;
+		width: 35px; 
+		height: 30px;
+	}
+	.img{
+		width: 35px;
+		margin-left: 0px;
+		border-radius: 30%;
+	}

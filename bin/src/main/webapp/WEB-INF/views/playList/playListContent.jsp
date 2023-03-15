@@ -12,7 +12,12 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title><%= id %>님의 ${ playListContent[0].listTitle }</title>
+<title><%= id %>님의 ${ playListContent[0].pl_title }</title>
+
+<!-- css 파일 불러오기 -->
+<link rel="stylesheet" href="resources/style/playListContent.css">
+
+
 </head>
 <body>
 	<!-- 상단바 jsp 삽입하기 -->
@@ -26,10 +31,10 @@
 				<img class="list_thumnail" src="https://image.bugsm.co.kr/album/images/original/203228/20322838.jpg?version=undefined">
 				<br>
 				<br>
-				<h2 style="text-shadow:2px 2px 2px gray; color:whitesmoke;">${ playListContent[0].listTitle }</h2>
+				<h2 style="text-shadow:2px 2px 2px gray; color:whitesmoke;">${ playListContent[0].pl_title }</h2>
 				<br>
 				<div class="ablum_explain">
-					${ playListContent[0].listExplain }
+					${ playListContent[0].pl_explain }
 				</div>
 			</div>
 				
@@ -53,10 +58,10 @@
 				<img class="list_thumnail" src="https://image.bugsm.co.kr/album/images/original/203228/20322838.jpg?version=undefined">
 				<br>
 				<br>
-				<h2 style="text-shadow:2px 2px 2px gray; color:whitesmoke;">${ playListContent[0].listTitle }</h2>
+				<a href="${ list.link }"><h2 style="text-shadow:2px 2px 2px gray; color:whitesmoke;">${ playListContent[0].pl_title }</h2></a>
 				<br>
 				<div class="ablum_explain">
-					${ playListContent[0].listExplain }
+					${ playListContent[0].pl_explain }
 				</div>
 			</div>
 				
@@ -74,7 +79,7 @@
 			<div class="list_parent">
 			<c:forEach var="list" items="${ playListContent }">
 				<div class="list_child">
-					<img class="album" src="${ list.imgLink }">
+					<img class="album" src="${ list.imageLink }">
 					<div class="list_info">
 						<span class="song_title">${ list.songName }</span>
 						<br>
@@ -101,5 +106,11 @@
 			</div>
 		</c:when>
 	</c:choose>
+	   	
+   	
+   	<!-- js파일 불러오기 -->
+   	<script src="resources/script/playListContent.js"></script>
+   	
+   	
 </body>
 </html>
