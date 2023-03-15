@@ -116,7 +116,7 @@ public class JavafoodController {
 		
 		//세션에 저장된 id값 받아오기
 //		String id = (String)request.getSession().getAttribute("login");
-		String id = "testAdmin"; //테스트 용 아이디.
+		String id = "id3"; //테스트 용 아이디.
 		System.out.println("해당 플레이 리스트를 요청한 아이디 : " + id ); //확인용
 		
 		//Service에서 플레이 리스트를 불러오는 메서드 실행하기
@@ -130,7 +130,7 @@ public class JavafoodController {
 		return result;
 	}
 	
-	@RequestMapping("plsyListContent")
+	@RequestMapping("playListContent")
 	public String selectPlayListContent(HttpServletRequest request, Model model)
 	{
 		System.out.println("JavafoodController의 selectPlayListContent 메서드 실행됨."); //확인용
@@ -143,11 +143,11 @@ public class JavafoodController {
 		
 		//Service에서 플레이 리스트 내역을 불러오는 메서드 실행하기
 		//메서드 실행 결과(리스트)를 필드에 담기
-//		List<PlayListDTO> playListContent = javaService.selectPlayListContent(pl_id);
-//		System.out.println("javaService.selectPlayListContent가 가져온 최종 리스트 크기는 : " + playListContent); //확인용
+		List<PlayListDTO> playListContent = javaService.selectPlayListContent(pl_id);
+		System.out.println("javaService.selectPlayListContent가 가져온 최종 리스트 크기는 : " + playListContent); //확인용
 		
 		//리스트를 담은 필드를 모델을 통해서 보내기
-//		model.addAttribute("playListContent", playListContent);
+		model.addAttribute("playListContent", playListContent);
 		
 		return result;
 	}

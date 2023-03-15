@@ -10,14 +10,16 @@ public class PlayListDTO
 	private int listNumber;
 	private int songNumber;
 	private String artistName;
-	private String imgLink;
+	private String imageLink;
 	private String album;
+	private String link;
 	
 	
 	
 	
 	
 	
+
 	//getter setter
 	public String getpl_title() {
 		return pl_title;
@@ -67,13 +69,19 @@ public class PlayListDTO
 	public void setArtistName(String artistName) {
 		this.artistName = artistName;
 	}
-	public String getImgLink() {
-		return imgLink;
+	public String getimageLink() {
+		return imageLink;
 	}
-	public void setImgLink(String imgLink) {
-		this.imgLink = imgLink;
+	public void setimageLink(String imageLink) {
+		this.imageLink = imageLink;
 	}
 	public String getAlbum() {
 		return album;
+	}
+	public String getLink() {
+		return link;
+	}
+	public void setLink(String link) {
+		this.link = link;
 	}
 }
