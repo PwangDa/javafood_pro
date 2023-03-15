@@ -31,7 +31,9 @@ public interface JavafoodDAO {
 	List<PlayListDTO> selectPlayListContent(String pl_id);
 ////////////////////////////////////////////////////////////
 //경용
-	List listID(); 
+	//로그인 정보 확인
+	List<login_DTO> listID(); 
+	//회원가입
 	int addId(login_DTO dto);
 ////////////////////////////////////////////////////////////
 //용준

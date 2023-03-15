@@ -5,7 +5,9 @@ import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
+import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -13,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.java.food.dto.FamousChartDTO;
 import com.java.food.dto.PlayListDTO;
@@ -154,19 +157,40 @@ public class JavafoodController {
 		
 		return result;
 	}
+	
+	@RequestMapping("main")
+	public String viewMain(Model model)
+	{
+		
+		System.out.println("JavafoodController의 viewMain 메서드 실행됨.");
+		
+		String result = "main/main";
+		
+		//Service에서 인기 차트를 불러오는 메서드 실행하기
+		//메서드 실행결과(리스트)를 필드에 담기
+//		List<>
+		
+		return result;
+	}
 ////////////////////////////////////////////////////////////
 	//경용
 	@RequestMapping (value = "/login")
 	public String loginpage(Model mo,
+			HttpServletRequest re,
 			@RequestParam Map<String, Object> map
 			 ){
+		//로그인 정보 확인 or 세션ID에 로그인 id 값 저장
+		if(map.get("ID")!=null) {
+			mo.addAttribute("log",javaService.login(map));
+			re.getSession().setAttribute("login", map.get("ID"));
+		}
 		if(map.get("Id1")!=null) {
 			mo.addAttribute(javaService.addid(map));
 		}
+		//회원 가입 페이지 이동
 		if(map.get("membership")!=null) {
 			mo.addAttribute("membership",map.get("membership"));
 		}
-		mo.addAttribute("ll",javaService.urselist());
 		return "lky/login";
 	}
 	@ResponseBody

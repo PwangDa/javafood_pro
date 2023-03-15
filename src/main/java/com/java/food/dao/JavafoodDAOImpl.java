@@ -149,10 +149,8 @@ public List<PlayListDTO> selectPlayListContent(String pl_id)
  * 아이디 리스트
  * @return list : 회원정보를 리턴해줍니다.
  */
-public List listID() {
-	List list = new ArrayList();
-	list = sqlSession.selectList("mapper.javafood.login");
-	return list;
+public List<login_DTO> listID() {
+	return sqlSession.selectList("mapper.javafood.login");
 }
 /**
  * 회원가입
