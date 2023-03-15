@@ -1,14 +1,14 @@
 package com.java.food.dto;
 
-public class AlbumDTO {
+public class SongPlusDTO {
 	
 	private String album_num;	//시퀀스로 올라감
 	private String album_cover; //앨범링크
 	private String album_name;	 //앨범명
 	private String album_into;	 //앨범소개
 	private String artist;		//가수이름
-	private String artist_img;	//가수이미지
 	private String artist_info;		//가수소개
+	private String artist_img;	//가수이미지
 	private String artistname;	 	
 	
 	private String album_key;	//앨범 1 설정중
@@ -16,49 +16,19 @@ public class AlbumDTO {
 	private String music_name;	//음악이름
 	private String music_link;	//음악링크
 	private String music_time;	//음악타임
-
-	private String album_add;	 	
-	private String artist_add;	 
-	private String songnumber;	 
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	public String getSongnumber() {
-		return songnumber;
-	}
-	public void setSongnumber(String songnumber) {
-		this.songnumber = songnumber;
-	}
-	public String getArtist_add() {
-		return artist_add;
-	}
-	public void setArtist_add(String artist_add) {
-		this.artist_add = artist_add;
-	}
-
-	public String getAlbum_add() {
-		return album_add;
-	}
-	public void setAlbum_add(String album_add) {
-		this.album_add = album_add;
-	}
-	public String getArtist_info() {
-		return artist_info;
-	}
-	public void setArtist_info(String artist_info) {
-		this.artist_info = artist_info;
-	}
 	public String getArtist_img() {
 		return artist_img;
 	}
 	public void setArtist_img(String artist_img) {
 		this.artist_img = artist_img;
+	}
+	
+	public String getArtist_info() {
+		return artist_info;
+	}
+	public void setArtist_info(String artist_info) {
+		this.artist_info = artist_info;
 	}
 	public String getArtistname() {
 		return artistname;

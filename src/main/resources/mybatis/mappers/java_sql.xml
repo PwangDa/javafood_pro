@@ -19,6 +19,12 @@
 		WHERE i.MUSIC_NUM = 1 AND ARTISTNAME = #{artistname}
 	</select>
 	
+	<select id="plusArtist" resultType="songPlusDTO" parameterType="String">
+		insert into album
+		(album_num, album_cover, album_name, album_into, artistname, artist_img, artist_info)";
+		values(#{album_num}, #{album_cover}, #{album_name}, #{album_into}, #{artistname}, #{artist_img}, #{artist_info})
+	</select>
+	
 	<select id="viewAlbum" resultType="albumDTO" parameterType="String">
 		SELECT * FROM ALBUM a
 		LEFT JOIN INTOALBUM i ON (a.ALBUM_NAME = i.ALBUM_NAME)
