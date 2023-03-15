@@ -1,5 +1,6 @@
 package com.java.food.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -60,51 +61,53 @@ public class JavafoodController {
 ////////////////////////////////////////////////////////////
 	//귀범
 	@RequestMapping(value = "/chart", method = RequestMethod.GET)
-	public String java2(Model ch, 
-			@RequestParam(value= "songnumber", required = false) String songnumber,
-			@RequestParam(value= "artistname", required = false) String artistname,
-			@RequestParam(value= "songname", required = false) String songname,
-			@RequestParam(value= "bygenre", required = false) String bygenre,
-			@RequestParam(value= "hits", required = false) String hits,
-			@RequestParam(value= "likes", required = false) String likes,
-			@RequestParam(value= "link", required = false) String link,
-			@RequestParam(value= "famous", required = false) String famous,
-			@RequestParam(value= "record", required = false) String record,
-			@RequestParam(value= "playtime", required = false) String playtime,
-			@RequestParam(value= "ranking", required = false) String ranking,
-			@RequestParam(value= "album", required = false) String album,
-			@RequestParam(value= "imglink", required = false) String imglink,
-			@RequestParam(value= "country", required = false) String country,
-			@RequestParam(value= "album_name", required = false) String album_name,
-			@RequestParam(value= "album_add", required = false) String album_add,
-			@RequestParam(value= "artist_add", required = false) String artist_add
-			) {
-			if(songnumber != null) {
-				FamousChartDTO dto = new FamousChartDTO();
-				dto.setSongnumber(songnumber);
-				dto.setArtistname(artistname);
-				dto.setSongname(songname);
-				dto.setBygenre(bygenre);
-				dto.setHits(hits);
-				dto.setLikes(likes);
-				dto.setLink(link);
-				dto.setFamous(famous);
-				dto.setRecord(record);
-				dto.setPlaytime(playtime);
-				dto.setRanking(ranking);
-				dto.setAlbum(album);
-				dto.setImglink(imglink);
-				dto.setCountry(country);
-				dto.setAlbum_name(album_name);
-				dto.setAlbum_add(album_add);
-				dto.setArtist_add(artist_add);	
-			}
-//			ch.addAttribute(javaService.getChart());
+	public String java2(Model model, HttpServletRequest request) {
+		//DTO 값 가져옴
+		FamousChartDTO dto = new FamousChartDTO();
+		// 결과 전달 변수에 jsp 경로 지정
+		String nextPage = "chart/chart";
 		
+		// songnumber 변수에 dto의 songnumber 가져옴
+		String songnum = dto.getSongnumber();
+		//  dto 데이터를 list로 가져와서 service에 getChart 메소드에 songnumber 전달
+		List<FamousChartDTO> list = javaService.getChart(songnum);
+			
+		// Model에 list값 담음
+		model.addAttribute("list", list);
 		
-		return "chart/chart";
+		// 결과 페이지로 리턴
+		return nextPage;
 
 	}
+	
+	
+	@RequestMapping(value = "/paging", method = RequestMethod.GET)
+	public String java2_1(Model model, HttpServletRequest req) {
+		List<FamousChartDTO> list = new ArrayList();
+		int pageNum = 1;
+		int countPerPage = 50;
+		
+		String songnum = " SELECT count(*) cnt FROM  Genre";
+		if(req.getParameter("paging")!=null) {
+			songnum = req.getParameter("paging");
+		}
+		
+		// 페이징 
+		String temp_pageNum = req.getParameter("pageNum");
+		if(temp_pageNum != null) {
+			pageNum = Integer.parseInt(temp_pageNum);
+		}
+		System.out.println("pageNum : " + pageNum);
+		System.out.println("countPerPage : " + countPerPage);
+		Map chart_paging = javaService.paging(songnum, pageNum, countPerPage);
+		model.addAttribute("paging", chart_paging.get("list"));
+		model.addAttribute("totalCount", chart_paging.get("totalCount"));
+		model.addAttribute("pageNum", pageNum);
+		model.addAttribute("countPerPage", countPerPage);
+		
+		return temp_pageNum;
+	}
+	
 ////////////////////////////////////////////////////////////
 	//범주
 	@RequestMapping("playList")
@@ -116,7 +119,7 @@ public class JavafoodController {
 		
 		//세션에 저장된 id값 받아오기
 //		String id = (String)request.getSession().getAttribute("login");
-		String id = "testAdmin"; //테스트 용 아이디.
+		String id = "id3"; //테스트 용 아이디.
 		System.out.println("해당 플레이 리스트를 요청한 아이디 : " + id ); //확인용
 		
 		//Service에서 플레이 리스트를 불러오는 메서드 실행하기
@@ -130,7 +133,7 @@ public class JavafoodController {
 		return result;
 	}
 	
-	@RequestMapping("plsyListContent")
+	@RequestMapping("playListContent")
 	public String selectPlayListContent(HttpServletRequest request, Model model)
 	{
 		System.out.println("JavafoodController의 selectPlayListContent 메서드 실행됨."); //확인용
@@ -143,11 +146,11 @@ public class JavafoodController {
 		
 		//Service에서 플레이 리스트 내역을 불러오는 메서드 실행하기
 		//메서드 실행 결과(리스트)를 필드에 담기
-//		List<PlayListDTO> playListContent = javaService.selectPlayListContent(pl_id);
-//		System.out.println("javaService.selectPlayListContent가 가져온 최종 리스트 크기는 : " + playListContent); //확인용
+		List<PlayListDTO> playListContent = javaService.selectPlayListContent(pl_id);
+		System.out.println("javaService.selectPlayListContent가 가져온 최종 리스트 크기는 : " + playListContent); //확인용
 		
 		//리스트를 담은 필드를 모델을 통해서 보내기
-//		model.addAttribute("playListContent", playListContent);
+		model.addAttribute("playListContent", playListContent);
 		
 		return result;
 	}

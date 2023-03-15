@@ -60,6 +60,12 @@
 			</c:forEach>
 		</c:when>
    	</c:choose>
+   	
+   	
+   	<!-- js파일 불러오기 -->
    	<script src="resources/script/playList.js"></script>
+   	
+   	
+   	
 </body>
 </html>
