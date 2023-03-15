@@ -1,0 +1,119 @@
+@charset "UTF-8";
+	body
+    {
+        display:flex;
+        margin:0;
+        background-color: black;
+        color:white;
+    }
+    
+    div.album_info
+    {
+        /* border:1px solid black; */
+        display:inline-block;
+        width:20%;
+        height: 100%;
+        margin-top:7%;
+        vertical-align: top;
+        text-align: center;
+        font-size: 14px;
+        color:thistle;
+    }
+    div.album_explain
+    {
+        margin:5%;
+    }
+    div.list_parent
+    {
+        /* border:1px solid red; */
+        
+        margin-top:70px;
+        border-left:1px dotted gray;
+        /* display:inline-block; */
+        width:78%;
+        height: 100%;
+    }
+    div.list_child
+    {
+        /* border:1px solid blue; */
+        border-bottom: 1px solid gray;
+        margin:1%;
+        /* display:inline-block; */
+    }
+    img.list_thumnail
+    {
+        height: 85%;
+        width: 85%;
+        box-shadow: 2px 2px 2px 2px gray;
+    }
+    img.album
+    {
+        width:100px;
+        height:100px;
+    }
+    div.list_number
+    {
+        /* border:1px solid green; */
+        display:inline-block;
+        vertical-align: top;
+    }
+    div.list_info
+    {
+        /* border:1px solid rebeccapurple; */
+        display:inline-block;
+        vertical-align: top;
+        /* line-height: 180%; */
+    }
+    span.song_title
+    {
+        /* border:1px solid red; */
+        font-size:20px;
+        font-weight: bold;
+    }
+    input.search_textbar
+    {
+        border:hidden;
+        border-radius: 5px;
+        margin:1% 0 1% 1%;
+        background-color: rgb(63, 63, 63);
+        color:rgb(247, 212, 147);
+        
+        width:80%;
+        height: 30px;
+    }
+    input.search_btn
+    {
+        border:hidden;
+        background-color:black;
+        color:white;
+        width:6%;
+        height: 32px;
+    }
+    div.noList
+    {
+        color:white;
+        padding:37%;
+        text-align:center;
+    }
+    button.add_btn
+    {
+        background-color: black;
+        color:white;
+        margin:2%;
+    }
+    span.delete
+    {
+        color:white;
+        margin:0.3%;
+        margin-top: 60px;
+        height: 5%;
+    }
+    
+    .hidden
+    {
+       display: none;
+    }
+    span.deleteSong
+    {
+        float:right;
+    }

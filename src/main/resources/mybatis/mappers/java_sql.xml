@@ -88,12 +88,14 @@
 	
 	<!-- 플레이 리스트 내역(Content) 불러오기 -->
 	<select id="selectPlayListContent" resultType="playListDTO" parameterType="String">
-		SELECT
-			plc.pl_id, plc.listNumber, plc.songName, plc.songNumber, s.Link
+	SELECT
+			plc.pl_id, plc.listNumber, plc.songName, plc.songNumber, g.Link, pl.pl_title, pl.pl_explain, g.imageLink, g.artistName, g.songName
 		FROM
-			playList_Content plc, song1 s
+			playList_Content plc, genre g, playList pl
 		WHERE
-			plc.songNumber = s.songNumber
+			plc.songNumber = g.songNumber
+			AND
+			pl.pl_id = plc.pl_id
 			AND
 			plc.pl_id = #{pl_id}
 	</select>
