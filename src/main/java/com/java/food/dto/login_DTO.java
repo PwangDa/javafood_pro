@@ -4,77 +4,55 @@ public class login_DTO {
 
 
 ///////---------login-----------//////////
-	private String id;
-	private String pw;
-	private String nic;
-	private String pn;
-	private String pn1;
-	private String phone;
-	private String email;
-	private String home;
-	private String myimg;
-	private String name;
+	private String ID;
+	private String PWD;
+	private String NIC;
+	private String PN;
+	private String PHONE;
+	private String EMAIL;
+	private String IMG;
 	
-	public String getName() {
-		return name;
+	public String getID() {
+		return ID;
 	}
-	public void setName(String name) {
-		this.name = name;
+	public String getPWD() {
+		return PWD;
 	}
-	public String getPn1() {
-		return pn1;
+	public String getNIC() {
+		return NIC;
 	}
-	public void setPn1(String pn1) {
-		this.pn1 = pn1;
+	public String getPN() {
+		return PN;
 	}
-	public String getId() {
-		return id;
+	public String getPHONE() {
+		return PHONE;
 	}
-	public void setId(String id) {
-		this.id = id;
+	public String getEMAIL() {
+		return EMAIL;
 	}
-	public String getPw() {
-		return pw;
+	public String getIMG() {
+		return IMG;
 	}
-	public void setPw(String pw) {
-		this.pw = pw;
+	public void setID(String iD) {
+		ID = iD;
 	}
-	public String getNic() {
-		return nic;
+	public void setPWD(String pWD) {
+		PWD = pWD;
 	}
-	public void setNic(String nic) {
-		this.nic = nic;
+	public void setNIC(String nIC) {
+		NIC = nIC;
 	}
-	public String getPn() {
-		return pn;
+	public void setPN(String pN) {
+		PN = pN;
 	}
-	public void setPn(String pn) {
-		this.pn = pn;
+	public void setPHONE(String pHONE) {
+		PHONE = pHONE;
 	}
-	public String getPhone() {
-		return phone;
+	public void setEMAIL(String eMAIL) {
+		EMAIL = eMAIL;
 	}
-	public void setPhone(String phone) {
-		this.phone = phone;
-	}
-	public String getEmail() {
-		return email;
-	}
-	public void setEmail(String email) {
-		this.email = email;
-	}
-	public String getHome() {
-		return home;
-	}
-	public void setHome(String home) {
-		this.home = home;
-	}
-	public String getMyimg() {
-		return myimg;
-	}
-	public void setMyimg(String myimg) {
-		this.myimg = myimg;
+	public void setIMG(String iMG) {
+		IMG = iMG;
 	}
 	
-
 }

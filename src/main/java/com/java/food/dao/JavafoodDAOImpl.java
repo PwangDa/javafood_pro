@@ -77,20 +77,32 @@ SqlSession sqlSession;
 //귀범
 
 @Override
-public List<FamousChartDTO> selectChart(String songnumber) {
+public List<FamousChartDTO> getChart(String songnumber) {
 	List list = new ArrayList();
-	list = sqlSession.selectList("mapper.javafood.selectChart", songnumber);
+	list = sqlSession.selectList("mapper.javafood.getChart", songnumber);
 	logger.info("list.size : "+ list.size());
 	return list;
 }
 
-public Map selectPaging(String fc, int start, int end) {
+@Override
+public List paging(String fc, int start, int end) {
 	
 	Map map = new HashMap();
+	map.put("fc", fc);
 	map.put("start", start);
 	map.put("end", end);
-	return null;
 	
+	List list = sqlSession.selectList("mapper.javafood.paging", map);
+	return list;
+	
+}
+
+@Override
+public int totalpage() {
+	
+	int totalcount = sqlSession.selectOne("mapper.javafood.totalpage");
+	
+	return totalcount;
 }
 ////////////////////////////////////////////////////////////
 //범주
@@ -137,10 +149,8 @@ public List<PlayListDTO> selectPlayListContent(String pl_id)
  * 아이디 리스트
  * @return list : 회원정보를 리턴해줍니다.
  */
-public List listID() {
-	List list = new ArrayList();
-	list = sqlSession.selectList("mapper.javafood.login");
-	return list;
+public List<login_DTO> listID() {
+	return sqlSession.selectList("mapper.javafood.login");
 }
 /**
  * 회원가입

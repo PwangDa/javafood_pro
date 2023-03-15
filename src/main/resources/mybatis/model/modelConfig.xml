@@ -11,6 +11,7 @@
 		<!-- 다영 -->
 		<typeAlias type="com.java.food.dto.CommentDTO" alias="commentDTO" />
 		<typeAlias type="com.java.food.dto.AlbumDTO" alias="albumDTO" />
+		<typeAlias type="com.java.food.dto.SongPlusDTO" alias="songPlusDTO" />
 		
 		<!-- 귀범 -->
 		<typeAlias type="com.java.food.dto.FamousChartDTO" alias="chartDTO"/>
