@@ -7,7 +7,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<body>
+<!-- <body> -->
 
 <%-- 
 	<%
@@ -210,12 +210,13 @@
  pageNum : ${pageNum }<br>
  countPerPage : ${countPerPage }<br> --%>
  <%
- 	String temp_totalCount = (String)request.getAttribute("totalCount");
- 	String temp_pageNum = (String)request.getAttribute("pageNum");
- 	String temp_countPerPage = (String)request.getAttribute("countPerPage");
-	int totalCount =  Integer.parseInt(temp_totalCount);
-	int pageNum =  Integer.parseInt(temp_pageNum);
-	int countPerPage =  Integer.parseInt(temp_countPerPage);
+
+	int totalCount = (int)request.getAttribute("totalCount");
+	int pageNum = (int)request.getAttribute("pageNum");
+	int countPerPage = (int)request.getAttribute("countPerPage");
+	System.out.println("jsp에서 getAttribute를 받아 int로 형변환한 결과 : " + totalCount);
+	System.out.println("jsp에서 getAttribute를 받아 int로 형변환한 결과 : " + pageNum);
+	System.out.println("jsp에서 getAttribute를 받아 int로 형변환한 결과 : " + countPerPage);
 	int lastPage = (int)Math.ceil( ((double)totalCount / countPerPage) / countPerPage);
 	int section = 2; // 페이징 보여줄 갯수
 	
@@ -234,7 +235,7 @@
 	System.out.println("sec_position : " + sec_position);
 	System.out.println("firstSec : " + firstSec);
 	System.out.println("lastSec : " + lastSec); */
-%>
+	%>
 	<c:set var="pageNum2" value="<%= pageNum %>" />
 	<div class="page">
 
