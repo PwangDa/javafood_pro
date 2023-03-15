@@ -27,19 +27,24 @@
 	
 	<!-- 인기차트 -->
 	<select id="chart" resultType="chartDTO" parameterType="String">
-		<![CDATA[
+		
 			SELECT * FROM ( 
 				SELECT rownum num, genre.* FROM 
 					( SELECT RANK() OVER (ORDER BY FAMOUS DESC) 
 						AS RANKING, a.* FROM ( SELECT (HITS *1) + (LIKES * 1.5) 
 							AS FAMOUS, s.*  FROM Genre s ) a ) genre WHERE country =?)
-			WHERE num >=? AND num <=? 
-		]]>
+			WHERE num <![CDATA[>=]]> #{start} AND rnum<![CDATA[<=]]> #{end} 
+
 		<foreach item="not" collection="list" open="(" separator="," close=")">
 			#{not}
 		</foreach>
 	</select>
-
+	
+	<!-- 인기차트 페이징 -->
+	<select id="totalpage" resultType="int">
+		SELECT count(*) cnt FROM  Genre
+	</select>
+	
 	<!-- 장르별-->
 	<select id="genre" resultType="genreDTO" parameterType="java.util.HashMap">
 		SELECT * FROM (
