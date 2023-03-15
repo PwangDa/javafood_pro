@@ -151,6 +151,21 @@ public class JavafoodController {
 		
 		return result;
 	}
+	
+	@RequestMapping("main")
+	public String viewMain(Model model)
+	{
+		
+		System.out.println("JavafoodController의 viewMain 메서드 실행됨.");
+		
+		String result = "main/main";
+		
+		//Service에서 인기 차트를 불러오는 메서드 실행하기
+		//메서드 실행결과(리스트)를 필드에 담기
+//		List<>
+		
+		return result;
+	}
 ////////////////////////////////////////////////////////////
 	//경용
 	@RequestMapping (value = "/login")
