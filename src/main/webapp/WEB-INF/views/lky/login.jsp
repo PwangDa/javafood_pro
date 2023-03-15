@@ -126,7 +126,7 @@
 				        </tr>
 				    </table>
 	            </div>
-	            <a href="javafood?javafood=4" class="at"><c:out value=" 이미 가입하셨다면, 로그인해 주세요! "/></a>
+	            <a href="login" class="at"><c:out value=" 이미 가입하셨다면, 로그인해 주세요! "/></a>
 	        </form>
 	        <hr>
 	</body>
@@ -138,7 +138,7 @@
 	</head>
 	<body>
 		<h1><c:out value="javafood 로그인성공"/></h1>
-		<h1>${login[0].nic } <c:out value="님 환영합니다."/></h1>
+		<h1>${login.nic } <c:out value="님 환영합니다."/></h1>
 		<strong id="time"></strong><c:out value="초후에 매인 화면으로 이동됩니다. 마음의 준비를 해주세요."/>
 		<script>loging();</script>
 	</body>
@@ -159,7 +159,7 @@
 					</div>
 					<div class="table1">
 						<h1 class="h1_1"><c:out value="Log in to your account"/></h1>
-					    <form method="post" action="javafood?javafood=4">
+					    <form method="post" action="login">
 					        <div class="head1">
 					            <div class = "inputbtn">
 					            	<input class = "tt" type="text" name="ID" placeholder="USER NAME">
@@ -172,8 +172,8 @@
 					            <span class = "chec"><input type="checkbox" name="ID" value="ID">Remember me</span> <span class ="chec" style= "margin-left :77px;">계정 찾기</span>
 					            <p><a href="login?membership=0" class="at"><c:out value="아직 JavaMusic을 사용하고 있지 않으신가요? 가입하기"/></a></p>
 					        </div>
-				        </div>
-				    </form>
+					    </form>
+			        </div>
 				    <br>
 			    </div >
 		    </div>

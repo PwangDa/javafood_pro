@@ -26,7 +26,9 @@ public interface JavafoodService {
 	List<PlayListDTO> selectPlayListContent(String pl_id);
 ////////////////////////////////////////////////////////////
 //경용
-	List urselist();
+	//로그인
+	Map login(Map<String, Object> map);
+	//회원가입
 	int addid(Map<String, Object> map);
 
 ////////////////////////////////////////////////////////////

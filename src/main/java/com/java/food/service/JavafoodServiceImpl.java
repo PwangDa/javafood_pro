@@ -120,22 +120,42 @@ public class JavafoodServiceImpl implements JavafoodService {
 	}
 ////////////////////////////////////////////////////////////
 //경용
-	//회원 목록
+	//로그인
 	@Override
-	public List urselist() {
-		return javaDAO.listID();
+	public Map login(Map<String, Object> map) {
+		Map m = new HashMap();
+		int a=0;
+		List<login_DTO> list = javaDAO.listID();
+		for(int i=0; i<list.size(); i++) {
+			if(list.get(i).getID().equals(map.get("ID"))) {
+				System.out.println(map.get("ID"));
+				a++;
+				if(list.get(i).getPWD().equals(map.get("PW"))) {
+					System.out.println(map.get("PW"));
+					a++;
+					m.put("id", list.get(i).getID());
+					m.put("pwd", list.get(i).getPWD());
+					m.put("nic", list.get(i).getNIC());
+					m.put("email", list.get(i).getEMAIL());
+				}
+			}
+		}
+		if(a==0) System.out.println("아이디 오류");
+		if(a==1) System.out.println("페스워드 오류");
+		if(a==2) System.out.println("로그인 성공");
+		m.put("log", a);
+		return m;
 	}
 	//회원가입
 	@Override
 	public int addid (Map<String, Object> map) {
 		login_DTO dto = new login_DTO();
-		dto.setId( (String) map.get("Id1") );
-		dto.setPw( (String) map.get("PW1") );
-		dto.setNic( (String) map.get("nic") );
-		dto.setName( (String) map.get("name") );
-		dto.setEmail( (String) map.get("mail") );
-		dto.setPn( (String) map.get("pn1")+"-"+map.get("pn2") );
-		dto.setPhone( (String) map.get("phone1")+"-"+map.get("phone2")+"-"+map.get("phone3") );
+		dto.setID( (String) map.get("Id1") );
+		dto.setPWD( (String) map.get("PW1") );
+		dto.setNIC( (String) map.get("nic") );
+		dto.setEMAIL( (String) map.get("mail") );
+		dto.setPN( (String) map.get("pn1")+"-"+map.get("pn2") );
+		dto.setPHONE( (String) map.get("phone1")+"-"+map.get("phone2")+"-"+map.get("phone3") );
 		return javaDAO.addId(dto);
 	}
 ////////////////////////////////////////////////////////////
