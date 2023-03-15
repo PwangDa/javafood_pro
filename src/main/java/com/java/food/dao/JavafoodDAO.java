@@ -20,9 +20,10 @@ public interface JavafoodDAO {
 ////////////////////////////////////////////////////////////
 //귀범
 	// 차트용
-	List<FamousChartDTO> selectChart(String songnumber);
+	List<FamousChartDTO> getChart(String songnumber);
 	// 페이징
-	Map selectPaging(String fc, int start, int end);
+	List paging(String fc, int start, int end);
+	int totalpage();
 	
 ////////////////////////////////////////////////////////////
 //범주
@@ -30,7 +31,9 @@ public interface JavafoodDAO {
 	List<PlayListDTO> selectPlayListContent(String pl_id);
 ////////////////////////////////////////////////////////////
 //경용
-	List listID(); 
+	//로그인 정보 확인
+	List<login_DTO> listID(); 
+	//회원가입
 	int addId(login_DTO dto);
 ////////////////////////////////////////////////////////////
 //용준

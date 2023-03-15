@@ -98,9 +98,9 @@
 		</table>
 
 <%
-int totalCount = Integer.parseInt( (String)request.getAttribute("totalCount"));
-int pageNum = Integer.parseInt( (String) request.getAttribute("pageNum"));
-int countPerPage = Integer.parseInt( (String) request.getAttribute("countPerPage"));
+int totalCount = (int) request.getAttribute("totalCount");
+int pageNum = (int) request.getAttribute("pageNum");
+int countPerPage = (int) request.getAttribute("countPerPage");
 // int / int = int
 // double / int = double
 int lastPage = (int) Math.ceil((double) totalCount / countPerPage);
