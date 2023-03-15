@@ -77,24 +77,40 @@ SqlSession sqlSession;
 //귀범
 
 @Override
-public List<FamousChartDTO> selectChart(String songnumber) {
+public List<FamousChartDTO> getChart(String songnumber) {
 	List list = new ArrayList();
-	list = sqlSession.selectList("mapper.javafood.selectChart", songnumber);
+	list = sqlSession.selectList("mapper.javafood.getChart", songnumber);
 	logger.info("list.size : "+ list.size());
 	return list;
 }
 
-public Map selectPaging(String fc, int start, int end) {
+@Override
+public List paging(String fc, int start, int end) {
 	
 	Map map = new HashMap();
+	map.put("fc", fc);
 	map.put("start", start);
 	map.put("end", end);
-	return null;
 	
+	List list = sqlSession.selectList("mapper.javafood.paging", map);
+	return list;
+	
+}
+
+@Override
+public int totalpage() {
+	
+	int totalcount = sqlSession.selectOne("mapper.javafood.totalpage");
+	
+	return totalcount;
 }
 ////////////////////////////////////////////////////////////
 //범주
 @Override
+/**
+ * 플레이 리스트를 List에 담아 return 합니다.
+ * 전달인자 : id(String)
+ */
 public List<PlayListDTO> selectPlayList(String id)
 {
 	System.out.println("JavafoodDAOImpl의 selectPlayList 메서드 실행됨."); //확인용
@@ -110,7 +126,11 @@ public List<PlayListDTO> selectPlayList(String id)
 }
 
 @Override
-public List<PlayListDTO> selectPlayListContent(String id)
+/**
+ * 플레이 리스트의 내역(Content)를 List에 담아 return 합니다.
+ * 전달인자 : 플레이 리스트의 id(String)
+ */
+public List<PlayListDTO> selectPlayListContent(String pl_id)
 {
 	System.out.println("JavafoodDAOImpl의 selectPlayList 메서드 실행됨."); //확인용
 	
@@ -118,8 +138,8 @@ public List<PlayListDTO> selectPlayListContent(String id)
 	
 	//sql을 이용하여 DB에 접속 후 플레이 리스트 가져오기
 //	//가져온 리스트를 필드에 담기
-//	result = sqlSession.selectList("mapper.javafood.selectPlayList", id);
-//	System.out.println("sqlSession을 이용하여 가져온 리스트의 크기는 : " + result.size() ); //확인용
+	result = sqlSession.selectList("mapper.javafood.selectPlayListContent", pl_id);
+	System.out.println("sqlSession을 이용하여 가져온 리스트의 크기는 : " + result.size() ); //확인용
 	
 	return result;
 }

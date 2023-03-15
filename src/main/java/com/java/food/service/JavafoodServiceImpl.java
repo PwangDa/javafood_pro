@@ -60,32 +60,47 @@ public class JavafoodServiceImpl implements JavafoodService {
 ////////////////////////////////////////////////////////////
 //귀범
 	// 차트
+	/**
+	 * 인기차트 출력 메소드
+	 * 전달인자 : String 노래번호
+	 * @return : list
+	 */
 	@Override
-	public List getChart(){
+	public List<FamousChartDTO> getChart(String songnumber){
 		
-		String songnumber = null;
+		List<FamousChartDTO> chartlist = null;
 		
-		List<FamousChartDTO> chartlist = javaDAO.selectChart(songnumber);
+		chartlist = javaDAO.getChart(songnumber);
 		
 		return chartlist;
 		
 		
 	}
 	
-	
-	public int Chart(FamousChartDTO dto) {
-//		return javaDAO.chart
+	// 페이징
+	/**
+	 * 페이징 출력 메소드
+	 * 전달인자 : 노래번호, 페이지넘버, 출력개수
+	 * @return : map
+	 */
+	@Override
+	public Map paging(String songnum, int pageNum, int countPerPage) {
+
+		int start = 0;
+		int end = 0;
+		start = (countPerPage * (pageNum - 1)) + 1;
+		end = start + countPerPage - 1;
+		List list = javaDAO.paging(songnum, start, end);
+		int totalCount = javaDAO.totalpage();
 		
-		return (Integer) null;
+		Map map = new HashMap();
+		map.put("list", list);
+		map.put("totalCount", totalCount);
+		return map;
 		
 	}
 ////////////////////////////////////////////////////////////
 //범주
-	/**
-	 * 작성자 : 김범주
-	 * 플레이 리스트를 불러옵니다.
-	 * 리턴 타입 : PlayListDTO를 담은 List.
-	 */
 	@Override
 	public List<PlayListDTO> selectPlayList(String id)
 	{
@@ -100,11 +115,6 @@ public class JavafoodServiceImpl implements JavafoodService {
 		return result;
 	}
 	
-	/**
-	 * 작성자 : 김범주
-	 * 플레이 리스트 내역(Content)를 불러옵니다.
-	 * 리턴 타입 : PlayListDTO를 담은 List.
-	 */
 	@Override
 	public List<PlayListDTO> selectPlayListContent(String pl_id)
 	{
@@ -113,7 +123,7 @@ public class JavafoodServiceImpl implements JavafoodService {
 		
 		//JavafoodDAO의 selectPlayList 메서드를 실행하기
 		//메서드의 결과(List)를 필드에 담기
-//		result = javaDAO.selectPlayListContent(pl_id);
+		result = javaDAO.selectPlayListContent(pl_id);
 		System.out.println("javaDAO의 selectPlayList를 실행하여 얻은 리스트의 크기 : " + result.size() ); //확인용
 		
 		return result;
